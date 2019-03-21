@@ -8,8 +8,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
-
+import { createGlobalStyle } from 'styled-components'
 import Header from "./header"
+import * as fonts from "../fonts"
 import "./layout.css"
 
 const Layout = ({ children }) => (
@@ -26,6 +27,7 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <Header siteTitle={data.site.siteMetadata.title} />
+        <GlobalStyle />
         <div
           style={{
             margin: `0 auto`,
@@ -51,3 +53,23 @@ Layout.propTypes = {
 }
 
 export default Layout
+
+const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'Yozakura JP';
+    src: local('YozakuraJP-Light'), url('${fonts.YozakuraJP.Light.OTF}') format('otf'),
+    url('${fonts.YozakuraJP.Light.TTF}') format('truetype'),
+    url('${fonts.YozakuraJP.Light.WOFF}') format('woff'),
+    url('${fonts.YozakuraJP.Light.WOFF2}') format('woff');
+    font-weight: 300;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Yozakura JP';
+    src: local('YozakuraJP-Regular'), url('${fonts.YozakuraJP.Regular.OTF}') format('otf'),
+    url('${fonts.YozakuraJP.Regular.WOFF}') format('woff'),
+    url('${fonts.YozakuraJP.Regular.WOFF2}') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+`
