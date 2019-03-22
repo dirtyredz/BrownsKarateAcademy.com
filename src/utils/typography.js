@@ -1,7 +1,7 @@
 import Typography from 'typography'
 
 const typography = new Typography({
-  baseFontSize: '25px',
+  baseFontSize: '20px',
   baseLineHeight: 1.5,
   headerFontFamily: ['Yozakura JP', 'Avenir Next', 'Helvetica Neue', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'],
   bodyFontFamily: ['Montserrat', 'Georgia', 'serif'],
@@ -20,6 +20,12 @@ const typography = new Typography({
       ],
     },
   ],
+  overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({
+    'h1,h2,h3,h4,h5,h6': {
+      lineHeight: 2,
+      letterSpacing: '4px',
+    },
+  })
 });
 
 // Hot reload typography in development.
