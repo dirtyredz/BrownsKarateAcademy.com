@@ -47,6 +47,7 @@ const MyLink = styled(Link)`
   text-decoration: none;
   padding: 0 5px;
   margin: 0;
+  color: inherit;
 
   &:visited {
     color: inherit;
