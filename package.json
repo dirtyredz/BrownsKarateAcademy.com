@@ -23,6 +23,7 @@
     "react-scroll-up-button": "^1.6.4",
     "react-typography": "^0.16.19",
     "styled-components": "^4.1.3",
+    "tyjs": "0.0.2",
     "typography": "^0.16.19"
   },
   "devDependencies": {

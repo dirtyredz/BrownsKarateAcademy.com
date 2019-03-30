@@ -24,14 +24,15 @@ class Section extends Component {
 
     return (
       <Wrapper
-      as={tag}
-      >
+        as={tag}
+        >
         {scales && <Image/>}
         <Content
           padding={padding}
           color={color}
           bgColor={bgColor}
           scales={scales}
+          {...rest}
         >
           <a name={anchor}></a>
           {children}
