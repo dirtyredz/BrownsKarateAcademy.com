@@ -107,7 +107,7 @@ const Title = styled.div`
   font-size: 120%;
   font-weight: 700;
 `
-const EventsWrapper = styled.ul`
+const EventsWrapper = styled.div`
   justify-content: space-around;
   display: flex;
   z-index: 2;
@@ -115,7 +115,7 @@ const EventsWrapper = styled.ul`
   flex-wrap: wrap;
 `
 
-const EventWrap = styled.li`
+const EventWrap = styled.div`
   display: flex;
   /* height: 100%; */
   max-width: 300px;

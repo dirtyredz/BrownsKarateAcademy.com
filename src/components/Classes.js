@@ -101,7 +101,7 @@ const MyHR = styled.hr`
   border-bottom: ${Colors.Red} 3px solid;
 `
 
-const ClassesWrapper = styled.ul`
+const ClassesWrapper = styled.div`
   justify-content: space-around;
   display: flex;
   z-index: 2;

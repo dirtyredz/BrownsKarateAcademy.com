@@ -31,7 +31,7 @@ export default class RenderTrial extends Component {
   }
 }
 
-const TrialWrap = styled.li`
+const TrialWrap = styled.div`
   display: flex;
   height: 160px;
   max-width: 300px;

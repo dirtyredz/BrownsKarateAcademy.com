@@ -91,7 +91,7 @@ const SmallDesc = styled.span`
     font-size: 90%;
   }
 `
-const ClassWrap = styled.li`
+const ClassWrap = styled.div`
   display: flex;
   height: 100%;
   max-width: 300px;
