@@ -32,8 +32,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Browns Karate Academy`,
+        short_name: `BKA`,
         start_url: `/`,
         background_color: Colors.White,
         theme_color: Colors.Red,

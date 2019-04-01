@@ -13,7 +13,7 @@ const GetSmallDescription = (title, description) => {
     Weapon: 'Looking to expand your skills into weapons, then this class is for you.',
   }
   const Defaults = [
-    'Some Default Message'
+    'Join us today and see what Sensei Brown can do for you.'
   ]
 
   const Found = Object.keys(Search).find((des) => {
