@@ -62,7 +62,7 @@ const TitleWrap = styled.div`
   transform: ${(props) => `rotate(${props.Rotate}deg)`};
   display: flex;
   justify-content: center;
-  height: 100%;
+  height: 350px;
   max-height: 121px;
 
   & > span {
