@@ -36,6 +36,7 @@ class Section extends Component {
           <a // eslint-disable-line
             name={anchor}
             href={`#${anchor}`}
+            aria-label={anchor}
           ></a>
           {children}
         </Content>

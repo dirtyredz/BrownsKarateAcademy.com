@@ -21,6 +21,7 @@ export default class Events extends Component {
   componentDidMount() {
     axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://www.mystudio.academy/e/Api/events?companyid=2506`,{
       timeout: 20000,
+      responseType: 'json'
     })
     .then(res => {
       this.setState({events: res.data.msg, loading: false})

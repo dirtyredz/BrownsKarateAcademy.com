@@ -21,6 +21,7 @@ export default class Classes extends Component {
   componentDidMount() {
     axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://www.mystudio.academy/m/Api/membership?companyid=2506`,{
       timeout: 20000,
+      responseType: 'json'
     })
     .then(res => {
       this.setState({classes: res.data.msg, loading: false})
@@ -31,6 +32,7 @@ export default class Classes extends Component {
 
     axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://www.mystudio.academy/t/Api/trialdetails?companyid=2506&trial_id=`,{
       timeout: 20000,
+      responseType: 'json'
     })
     .then(res => {
       this.setState({trials: res.data.msg, trialLoading: false})
