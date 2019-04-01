@@ -1,6 +1,7 @@
 var Colors = require('./src/utils/colors')
 module.exports = {
   siteMetadata: {
+    siteUrl: `https://www.brownskarateacademy.com`,
     title: `Browns Karate Academy`,
     description: `.`,
     author: `Digital Redz | David McClain (Dirtyredz)`,
@@ -43,5 +44,14 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     'gatsby-plugin-offline',
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://www.brownskarateacademy.com',
+        sitemap: 'https://www.brownskarateacademy.com/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    }
   ],
 }
