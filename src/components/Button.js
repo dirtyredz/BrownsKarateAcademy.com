@@ -32,7 +32,7 @@ export default class Button extends Component {
             {...this.props}
             color={Index % 2 ? Colors.Green : Colors.Red}
             >
-            LEARN MORE
+            {this.props.text ? this.props.text : "LEARN MORE"}
           </ButtonLink>
         </ButtonWrap>
       </HeadShake>

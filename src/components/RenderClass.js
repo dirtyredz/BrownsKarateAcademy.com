@@ -38,6 +38,7 @@ export default class RenderClass extends Component {
           <SmallDesc>{GetSmallDescription(data.category_title, data.category_description)}</SmallDesc>
           <br/>
           <Button
+            text="VIEW CLASS"
             aria-label={`Class ${data.category_title}`}
             to={`/MyStudioView?Class=${data.membership_id}`}
             state={{

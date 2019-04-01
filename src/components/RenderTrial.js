@@ -14,6 +14,7 @@ export default class RenderTrial extends Component {
         <TrialWrap>
           <span>{data.trial_title}</span>
           <Button
+            text="VIEW TRIAL"
             aria-label={`Class ${data.trial_title}`}
             to={`/MyStudioView?trial=${data.trial_id}`}
             state={{

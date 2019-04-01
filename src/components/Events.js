@@ -77,6 +77,7 @@ const RenderEvent = ({data, index}) => {
         <SmallDesc>{data.event_desc}</SmallDesc>
         <br/>
         <Button
+          text="VIEW EVENT"
           aria-label={`Class ${data.event_title}`}
           to={`/MyStudioView?Event=${data.event_id}`}
           state={{
