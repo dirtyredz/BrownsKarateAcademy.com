@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import {VerticleButton, TinyButton} from "react-scroll-up-button";
 import styled, { createGlobalStyle } from 'styled-components'
-import Header from "./Header"
+import Header from "./header"
 import Footer from "./Footer"
 import * as fonts from "../fonts"
 import { withBreakpoints } from 'react-breakpoints'
