@@ -1,26 +1,32 @@
 import React from "react"
 import PropTypes from "prop-types"
-import {VerticleButton as ScrollUpButton} from "react-scroll-up-button";
+import {VerticleButton, TinyButton} from "react-scroll-up-button";
 import styled, { createGlobalStyle } from 'styled-components'
 import Header from "./Header"
 import Footer from "./Footer"
 import * as fonts from "../fonts"
+import { withBreakpoints } from 'react-breakpoints'
 
-const Layout = ({ children }) => (
-  <>
-    <GlobalStyle />
-    <ScrollUpButton />
-    <Header />
-    <main>{children}</main>
-    <Footer />
-  </>
-)
+
+const Layout = ({ children, breakpoints, currentBreakpoint }) => {
+  const MobileView = breakpoints[currentBreakpoint] <= breakpoints.tablet
+  const ScrollUpButton = MobileView ? TinyButton : VerticleButton
+  return (
+    <Wrapper>
+      <GlobalStyle />
+      <ScrollUpButton ToggledStyle={{opacity: 0.8, zIndex: 999}}/>
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </Wrapper>
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default withBreakpoints(Layout)
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -43,8 +49,11 @@ const GlobalStyle = createGlobalStyle`
   h1,h2,h3,h4,h5,h6 {
     margin: 0;
   }
+  body {
+    min-width: 325px;
+  }
 `
 
 const Wrapper = styled.div`
-  width: 100%;
+  position: relative;
 `

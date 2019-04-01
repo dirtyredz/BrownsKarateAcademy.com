@@ -1,4 +1,3 @@
-import PropTypes from "prop-types"
 import React from "react"
 import styled from 'styled-components'
 import { StaticQuery, graphql } from "gatsby"
@@ -30,6 +29,7 @@ const Header = () => (
         padding={false}
         tag="header"
       >
+        <CallToday>CALL TODAY&nbsp;&nbsp;715-541-2187</CallToday>
         <HeaderMenu/>
         <CenterRow>
           <CircleImage fluid={data.placeholderImage.childImageSharp.fluid} />
@@ -50,36 +50,48 @@ Header.defaultProps = {
 
 export default Header
 
+const CallToday = styled.div`
+  /* width: 500px; */
+  text-align: right;
+  padding: 0 25px;
+  font-weight: 700;
+  font-size: 140%;
+`
+
 const HeaderMenu = styled(Menu)`
-  position: absolute;
-  top: 0;
-  right: 0;
+  /* width: 500px; */
+  max-width: 475px;
+  margin-left: auto;
+  margin-bottom: -20px;
 `
 
 const WebsiteTitle = styled.h1`
   letter-spacing: 20px;
-  white-space: nowrap;
-  font-size: 100%;
+  /* white-space: nowrap; */
+  font-size: calc(100% + 3vw);
 `
 
 const HeaderSection = styled(Section)`
-  height: 450px;
+  /* height: 450px; */
   text-align: center;
 `
 
 const CenterRow = styled.div`
   display: flex;
   justify-content: center;
+  width: 100%;
 `
-
 
 const CircleImage = styled(Img)`
   background-color: ${Colors.White};
-  width: 300px;
-  height: 300px;
+  max-width: 250px;
+  max-height: 250px;
+  width: 50%;
+  height: 50%;
   border-radius: 50%;
+  border: #F3F3F3 solid 12px;
 
   & img {
-    padding: 10px;
+    padding: 4%;
   }
 `

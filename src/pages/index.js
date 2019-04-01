@@ -2,60 +2,67 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Section from "../components/Section"
+import GreenBox from "../components/GreenBox"
+import Welcome from "../components/Welcome"
+import Classes from "../components/Classes"
+import Schedule from "../components/Schedule"
+import Contact from "../components/Contact"
+import Events from "../components/Events"
+import About from "../components/About"
 import * as Colors from '../utils/colors'
-
+import BreakPoints from '../utils/breakpoints'
+import { Dragon, Caligraphy } from '../components/Icons'
+import styled from 'styled-components'
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <Section
-      color={Colors.Black}
-      bgColor={Colors.Grey}
-    >
-      <h1>GREEN BOX</h1>
-    </Section>
-    <Section
-      color={Colors.Black}
-      bgColor={Colors.White}
-      anchor="Welcome"
-    >
-      <h1>WELCOME</h1>
-    </Section>
-    <Section
-      anchor="Classes"
-    >
-      <h1>CLASSES</h1>
-    </Section>
-    <Section
-      color={Colors.Black}
-      bgColor={Colors.Grey}
-      anchor="Schedule"
-      scales={true}
-    >
-      <h1>SCHEDULE</h1>
-    </Section>
-    <Section
-      anchor="About"
-    >
-      <h1>ABOUT</h1>
-    </Section>
-    <Section
-      color={Colors.Black}
-      bgColor={Colors.Grey}
-      anchor="Events"
-      scales={true}
-    >
-      <h1>OUR EVENTS</h1>
-      <br/>
-      <h1>GALLERY</h1>
-    </Section>
-    <Section
-      anchor="Contact"
-    >
-      <h1>CONTACT</h1>
-    </Section>
+    <GreenBox />
+    <Welcome />
+    <MyDragon style={{height: 'unset'}}/>
+    <Classes />
+    <MyCaligraphy style={{height: 'unset'}}/>
+    <Schedule />
+    <About />
+    <Events />
+    <Contact />
   </Layout>
 )
 
 export default IndexPage
+
+const MyDragon = styled(Dragon)`
+  width: 195px;
+  margin-top: -80px;
+  opacity: 0.5;
+  fill: ${Colors.DarkGrey};
+  z-index: 1;
+  position: absolute;
+
+  @media (max-width:${BreakPoints.mobileLandscape}px) {
+    width: 105px;
+    margin-top: -50px;
+  }
+  @media (min-width:${BreakPoints.mobileLandscape}px) and (max-width:${BreakPoints.tablet}px) {
+    width: 178px;
+    margin-top: -65px;
+  }
+`
+const MyCaligraphy = styled(Caligraphy)`
+  width: 132px;
+  margin-top: -160px;
+  opacity: 0.7;
+  fill: #757575;
+  z-index: 1;
+  position: absolute;
+  right: 0;
+
+  @media (max-width:${BreakPoints.mobileLandscape}px) {
+    width: 84px;
+    margin-top: -109px;
+  }
+  @media (min-width:${BreakPoints.mobileLandscape}px) and (max-width:${BreakPoints.tablet}px) {
+    width: 113px;
+    margin-top: -142px;
+  }
+`

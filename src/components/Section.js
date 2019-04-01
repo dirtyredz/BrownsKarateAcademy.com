@@ -21,7 +21,6 @@ class Section extends Component {
       children,
       ...rest
     } = this.props
-
     return (
       <Wrapper
         as={tag}
@@ -34,7 +33,10 @@ class Section extends Component {
           scales={scales}
           {...rest}
         >
-          <a name={anchor}></a>
+          <a // eslint-disable-line
+            name={anchor}
+            href={`#${anchor}`}
+          ></a>
           {children}
         </Content>
       </Wrapper>
@@ -69,7 +71,7 @@ const Wrapper = styled.section`
   `
 
 const Content = styled.div`
-  padding: ${props => props.padding ? "20px 10%" : "10px 0"};
+  padding: ${props => props.padding ? "20px calc(1% + 1vw)" : "10px 0"};
   color: ${props => props.color};
   background-color: ${props => props.scales ? 'none' : props.bgColor};
   `
@@ -83,6 +85,6 @@ const Image = styled.div`
   background-color: ${props => props.bgColor};
   background-image: url("${FishScales}");
   width: 100%;
-  filter: blur(2px);
+  filter: blur(2.5px);
   background-position: center;
 `

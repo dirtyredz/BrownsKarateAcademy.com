@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Section from './Section'
@@ -14,10 +13,22 @@ const Footer = props => {
       padding={false}
       tag="footer"
     >
-        <FooterMenu/>
-        © <time>{new Date().getFullYear()}</time>, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+        <CallToday>CALL TODAY&nbsp;&nbsp;715-541-2187</CallToday>
+        <FooterMenu
+          NoMobile
+        />
+        <br />
+        <br />
+        <OnTheRight>
+          We believe that you will find Brown’s Karate Academy to be one of the best Martial Arts Schools you will encounter….Come and experience the difference for yourself!
+        </OnTheRight>
+        <br />
+        <SpreadApart>
+          <span>Website by <a href="digitalredz.com">Digital Redz</a></span>
+          <span>
+            © <time>{new Date().getFullYear()}</time> BrownsKarateAcademy  | All Rights Reserved
+          </span>
+        </SpreadApart>
     </Section>
   )
 }
@@ -28,6 +39,28 @@ Footer.propTypes = {
 
 export default Footer
 
+const CallToday = styled.div`
+  /* width: 500px; */
+  text-align: right;
+  padding: 0 25px;
+  font-weight: 700;
+  font-size: 140%;
+`
+
+const OnTheRight = styled.div`
+  width: 80%;
+  text-align: right;
+  padding: 5px 20px;
+  margin-left: auto;
+`
+
 const FooterMenu = styled(Menu)`
+  padding: 5px 20px;
   float: right;
+`
+const SpreadApart = styled.div`
+  font-size: 60%;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
 `

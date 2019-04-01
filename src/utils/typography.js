@@ -1,5 +1,7 @@
 // import Typography from 'typography'
 import Typography from 'tyjs'
+// import BreakPoints from './breakpoints'
+
 const typography = new Typography({
   baseFontSize: '20px',
   baseLineHeight: 1.5,
@@ -23,6 +25,7 @@ const typography = new Typography({
       styles: [
         '300',
         '400',
+        '600',
         '700',
         '900',
       ],
