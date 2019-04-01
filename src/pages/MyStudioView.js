@@ -12,6 +12,11 @@ import sanitizeHtml from 'sanitize-html'
 
 class MyStudioView extends Component {
   render() {
+    const Title = this.props.location.state ? this.props.location.state.Title : ''
+    const Image = this.props.location.state ? this.props.location.state.Image : false
+    const SubTitle = this.props.location.state ? this.props.location.state.Subtitle : ''
+    const Description = this.props.location.state ? this.props.location.state.Description : '404'
+    const Iframe = this.props.location.state ? this.props.location.state.MyStudio : false
     return (
       <Layout>
         <SEO title="MyStudio" keywords={[`MyStudio`, `react`]} />
@@ -23,19 +28,19 @@ class MyStudioView extends Component {
               <br/>
               <br/>
               <br/>
-              <Title>{this.props.location.state.Title}</Title>
+              <TitleWrap>{Title}</TitleWrap>
               <br/>
               <CenterMe>
-                <img alt={this.props.location.state.Image} src={this.props.location.state.Image}/>
+                {Image && <img alt={Image} src={Image}/>}
               </CenterMe>
               <br/>
-              <SubTitle>{this.props.location.state.Subtitle}</SubTitle>
+              <SubTitleWrap>{SubTitle}</SubTitleWrap>
               <br/>
               <br/>
-              <Description
+              <DescriptionWrap
                 dangerouslySetInnerHTML={{
                   __html: sanitizeHtml(
-                    this.props.location.state.Description,
+                    Description,
                     {
                       allowedTags: [ 'b', 'br', 'span', 'i', 'em', 'strong', 'a' ],
                       allowedAttributes: {
@@ -65,7 +70,7 @@ class MyStudioView extends Component {
                 closeOnDocumentClick
               >
                 <Wrapper>
-                  <MyIframe src={this.props.location.state.MyStudio}></MyIframe>
+                  {Iframe && <MyIframe src={Iframe}></MyIframe>}
                 </Wrapper>
               </Popup>
             </div>
@@ -84,19 +89,12 @@ const GlobalStyle = createGlobalStyle`
     width: 60% !important;
     height: 80% !important;
   }
-
-  @media (max-width:${BreakPoints.tablet}px) {
-    div.popup-content {
-      width: 90% !important;
-      height: 80% !important;
-    }
-  }
-  /* @media (min-width:${BreakPoints.mobileLandscape}px) and (max-width:${BreakPoints.tablet}px) {
+  @media (min-width:${BreakPoints.mobileLandscape}px) and (max-width:${BreakPoints.tablet}px) {
     div.popup-content {
       width: 60% !important;
       height: 80% !important;
     }
-  } */
+  }
 `
 const Wrapper = styled.div`
   position: relative;
@@ -114,7 +112,7 @@ const MyIframe = styled.iframe`
   border: 0;
 `
 
-const Title = styled.div`
+const TitleWrap = styled.div`
   font-size: 150%;
   font-weight: 900;
   text-align: center;
@@ -124,13 +122,13 @@ const CenterMe = styled.div`
   justify-content: center;
 `
 
-const SubTitle = styled.div`
+const SubTitleWrap = styled.div`
   font-size: 140%;
   font-weight: 700;
   text-align: center;
 `
 
-const Description = styled.div`
+const DescriptionWrap = styled.div`
   padding: 30px;
   font-size: 120%;
   font-weight: 600;
