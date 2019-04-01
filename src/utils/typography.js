@@ -19,18 +19,18 @@ const typography = new Typography({
       baseFontSize: '10px',
     },
   },
-  googleFonts: [
-    {
-      name: 'Montserrat',
-      styles: [
-        '300',
-        '400',
-        '600',
-        '700',
-        '900',
-      ],
-    },
-  ],
+  // googleFonts: [
+  //   {
+  //     name: 'Montserrat',
+  //     styles: [
+  //       '300',
+  //       '400',
+  //       '600',
+  //       '700',
+  //       '900',
+  //     ],
+  //   },
+  // ],
   overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({
     'h1,h2,h3,h4,h5,h6': {
       lineHeight: 2,

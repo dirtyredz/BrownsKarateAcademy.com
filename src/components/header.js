@@ -17,7 +17,7 @@ const Header = () => (
         }
         placeholderImage: file(relativePath: { eq: "Logo.png" }) {
           childImageSharp {
-            fluid(maxWidth: 300) {
+            fluid(maxWidth: 250) {
               ...GatsbyImageSharpFluid
             }
           }

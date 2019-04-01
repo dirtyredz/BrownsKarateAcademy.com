@@ -53,6 +53,14 @@ module.exports = {
         sitemap: 'https://www.brownskarateacademy.com/sitemap.xml',
         policy: [{ userAgent: '*', allow: '/' }]
       }
+    },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Montserrat']
+        }
+      }
     }
   ],
 }
