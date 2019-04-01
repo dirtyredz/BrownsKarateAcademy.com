@@ -38,7 +38,7 @@ export default class RenderClass extends Component {
           <SmallDesc>{GetSmallDescription(data.category_title, data.category_description)}</SmallDesc>
           <br/>
           <Button
-            to="/MyStudioView/"
+            to={`/MyStudioView?Class=${data.membership_id}`}
             state={{
               Image: data.category_image_url,
               Title: data.category_title,

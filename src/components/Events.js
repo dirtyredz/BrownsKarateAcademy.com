@@ -76,7 +76,7 @@ const RenderEvent = ({data, index}) => {
         <SmallDesc>{data.event_desc}</SmallDesc>
         <br/>
         <Button
-          to="/MyStudioView/"
+          to={`/MyStudioView?Event=${data.event_id}`}
           state={{
             Image: data.event_banner_img_url,
             Title: data.event_title,
