@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import * as Colors from '../utils/colors'
-import FishScales from '../images/FishScales.png'
+import FishScales from '../images/FishScales.jpg'
 
 class Section extends Component {
   static propTypes = {
