@@ -24,7 +24,7 @@ const Footer = props => {
         </OnTheRight>
         <br />
         <SpreadApart>
-          <span>Website by <a href="digitalredz.com">Digital Redz</a></span>
+          <span>Website by <MyLink href="https://digitalredz.com">Digital Redz</MyLink></span>
           <span>
             © <time>{new Date().getFullYear()}</time> BrownsKarateAcademy  | All Rights Reserved
           </span>
@@ -39,6 +39,17 @@ Footer.propTypes = {
 
 export default Footer
 
+const MyLink = styled.a`
+  color: ${Colors.Red};
+  text-decoration: none;
+
+  &:visited {
+    color: ${Colors.Red};
+  }
+  &:hover {
+    color: ${Colors.Green};
+  }
+`
 const CallToday = styled.div`
   /* width: 500px; */
   text-align: right;
