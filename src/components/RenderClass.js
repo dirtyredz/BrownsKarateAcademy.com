@@ -26,29 +26,24 @@ const GetSmallDescription = (title, description) => {
 
 export default class RenderClass extends Component {
   render() {
-    const {data, index} = this.props
-    const type = 'm'
+    const { data, index } = this.props
+    let { context, path } = data
+    if (!context) {
+      context = data
+    }
     return (
-      <Roll delay={index * 500} onReveal={ () => console.log('Reveal')} >
+      <Roll delay={index * 500} >
         <ClassWrap>
           <TitleWrap Rotate={index % 2 ? 10 : 170}>
-            <span>{data.category_title}</span>
+            <span>{context.Title}</span>
           </TitleWrap>
           <br/>
-          <SmallDesc>{GetSmallDescription(data.category_title, data.category_description)}</SmallDesc>
+          <SmallDesc>{GetSmallDescription(context.Title, context.Description)}</SmallDesc>
           <br/>
           <Button
             text="VIEW CLASS"
-            aria-label={`Class ${data.category_title}`}
-            to={`/MyStudioView?Class=${data.membership_id}`}
-            state={{
-              Image: data.category_image_url,
-              Title: data.category_title,
-              Description: data.category_description,
-              Subtitle: data.category_subtitle,
-              type,
-              MyStudio: `https://www.mystudio.academy/${type}/?=7155412187/2506/${data.membership_id}`
-            }}
+            aria-label={`Class ${context.Title}`}
+            to={path}
             index={index} />
         </ClassWrap>
        </Roll>

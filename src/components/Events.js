@@ -3,34 +3,11 @@ import styled from 'styled-components'
 import Section from "./Section"
 import * as Colors from '../utils/colors'
 import BreakPoints from '../utils/breakpoints'
-import axios from 'axios'
-import Button from './Button'
-import Zoom from 'react-reveal/Zoom'; // Importing Zoom effect
 import { GirlKarate3 } from '../components/Icons'
-import Loader from './Loader'
+import RenderEvent from '../components/RenderEvent'
+import { StaticQuery, graphql } from "gatsby"
 
 export default class Events extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      loading: false,
-      events: [],
-    }
-  }
-  componentDidMount() {
-    axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://www.mystudio.academy/e/Api/events?companyid=2506`,{
-      timeout: 20000,
-      responseType: 'json'
-    })
-    .then(res => {
-      this.setState({events: res.data.msg, loading: false})
-    })
-    .catch((error) => {
-      this.setState({loading: false})
-    });
-  }
-
   render() {
     return (
       <MySection
@@ -46,68 +23,42 @@ export default class Events extends Component {
         <br />
         <br />
         <ReverseKarate />
-        {!this.state.loading
-          ? this.state.events.length > 0
-            ? (
+        <StaticQuery
+          query={graphql`
+            query {
+              allSitePage(filter: { context: { Type: { eq: "e" }}}) {
+                edges {
+                  node {
+                    path,
+                    context{
+                      Title
+                      Type
+                      Description
+                    }
+                  }
+                }
+              }
+            }
+          `}
+          render={data => {
+            const Events = data.allSitePage.edges
+            return (
               <EventsWrapper>
-                {[...this.state.events, ...this.state.events, ...this.state.events].map((data, index) => <RenderEvent key={`Event_${data.event_id}_${index}`} index={index} data={data}/>)}
+                {Events.map((classInfo, index) => <RenderEvent key={`Event_${classInfo.ID}`} index={index} data={classInfo.node}/>)}
               </EventsWrapper>
             )
-            : (
-              <NoEvents>We currently have no events scheduled, Please call 715-541-2187 for more information.</NoEvents>
-            )
-          : <Loader />
-        }
+          }}
+        />
         <br />
       </MySection>
     )
   }
 }
 
-let Delay = -500
-
-const RenderEvent = ({data, index}) => {
-  Delay += 500
-  const type = 'e'
-  return (
-    <Zoom delay={Delay}>
-      <EventWrap>
-        <Title>{data.event_title}</Title>
-        <br/>
-        <SmallDesc>{data.event_desc}</SmallDesc>
-        <br/>
-        <Button
-          text="VIEW EVENT"
-          aria-label={`Class ${data.event_title}`}
-          to={`/MyStudioView?Event=${data.event_id}`}
-          state={{
-            Image: data.event_banner_img_url,
-            Title: data.event_title,
-            Description: data.event_desc,
-            Subtitle: data.event_category_subtitle,
-            type,
-            MyStudio: `https://www.mystudio.academy/${type}/?=7155412187/2506/${data.event_id}`
-          }}
-          index={index}
-        />
-      </EventWrap>
-    </Zoom>
-  )
-}
-
 const MySection = styled(Section)`
   min-height: 500px;
 `
 
-const NoEvents = styled.div`
-  font-size: 140%;
-  font-weight: 700;
-  text-align: center;
-`
-const Title = styled.div`
-  font-size: 120%;
-  font-weight: 700;
-`
 const EventsWrapper = styled.div`
   justify-content: space-around;
   display: flex;
@@ -116,21 +67,6 @@ const EventsWrapper = styled.div`
   flex-wrap: wrap;
 `
 
-const EventWrap = styled.div`
-  display: flex;
-  /* height: 100%; */
-  max-width: 300px;
-  flex-direction: column;
-  margin-top: 30px;
-  justify-content: space-between;
-
-  @media (max-width:${BreakPoints.mobileLandscape}px) {
-    max-width: 160px;
-  }
-  @media (min-width:${BreakPoints.mobileLandscape}px) and (max-width:${BreakPoints.tablet}px) {
-    max-width: 235px;
-  }
-`
 
 const CenterHorizontal = styled.div`
   padding-left: 50px;
@@ -154,19 +90,6 @@ const WhiteTitle = styled.h2`
   padding-right: 10vw;
   text-align: center;
 `
-
-const SmallDesc = styled.span`
-  font-size: 80%;
-  font-weight: 600;
-
-  @media (max-width:${BreakPoints.mobileLandscape}px) {
-    font-size: 110%;
-  }
-  @media (min-width:${BreakPoints.mobileLandscape}px) and (max-width:${BreakPoints.tablet}px) {
-    font-size: 90%;
-  }
-`
-
 
 const ReverseKarate = styled(GirlKarate3)`
   position: absolute;

@@ -12,11 +12,26 @@ import sanitizeHtml from 'sanitize-html'
 
 class MyStudioView extends Component {
   render() {
-    const Title = this.props.location.state ? this.props.location.state.Title : ''
-    const Image = this.props.location.state ? this.props.location.state.Image : false
-    const SubTitle = this.props.location.state ? this.props.location.state.Subtitle : ''
-    const Description = this.props.location.state ? this.props.location.state.Description : '404'
-    const Iframe = this.props.location.state ? this.props.location.state.MyStudio : false
+    const Title = this.props.pageContext ? this.props.pageContext.Title : ''
+    const Image = this.props.pageContext ? this.props.pageContext.Image : false
+    const SubTitle = this.props.pageContext ? this.props.pageContext.SubTitle : ''
+    const Description = this.props.pageContext ? this.props.pageContext.Description : '404'
+    const Iframe = this.props.pageContext ? this.props.pageContext.MyStudio : false
+    const Type = this.props.pageContext ? this.props.pageContext.Type : 'm'
+    let ButtonText = ''
+    switch (Type) {
+      case 'm':
+        ButtonText="Membership Options"
+        break;
+      case 'e':
+        ButtonText="Register for Event"
+        break;
+      case 't':
+        ButtonText="Sign Up Today"
+        break;
+      default:
+        break;
+    }
     return (
       <Layout>
         <SEO title="MyStudio" keywords={[`MyStudio`, `react`]} />
@@ -61,7 +76,7 @@ class MyStudioView extends Component {
                 trigger={
                   <CenterMe>
                     <MyStudioButton>
-                      <div>Membership Options</div>
+                      <div>{ButtonText}</div>
                       <img alt="MyStudio Link" src="https://www.mystudio.academy/v30/WebPortal/image/logo_incourage.png"/>
                     </MyStudioButton>
                   </CenterMe>

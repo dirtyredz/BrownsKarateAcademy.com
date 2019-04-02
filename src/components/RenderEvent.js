@@ -3,9 +3,8 @@ import styled from 'styled-components'
 import BreakPoints from '../utils/breakpoints'
 import Button from './Button'
 import Fade from 'react-reveal/Fade'; // Importing Zoom effect
-import * as Colors from '../utils/colors'
 
-export default class RenderTrial extends Component {
+export default class RenderEvent extends Component {
   render() {
     const { data, index } = this.props
     let { context, path } = data
@@ -14,39 +13,53 @@ export default class RenderTrial extends Component {
     }
     return (
       <Fade delay={index * 500} >
-        <TrialWrap>
-          <span>{context.Title}</span>
+        <EventWrap>
+          <Title>{context.Title}</Title>
+          <br/>
+          <SmallDesc>{context.Description}</SmallDesc>
+          <br/>
           <Button
-            text="VIEW TRIAL"
-            aria-label={`Trial ${context.Title}`}
+            text="VIEW EVENT"
+            aria-label={`Event ${context.Title}`}
             to={path}
-            index={index} />
-        </TrialWrap>
+            index={index}
+          />
+        </EventWrap>
        </Fade>
     )
   }
 }
 
-const TrialWrap = styled.div`
+const Title = styled.div`
+  font-size: 120%;
+  font-weight: 700;
+`
+
+const EventWrap = styled.div`
   display: flex;
-  height: 160px;
+  /* height: 100%; */
   max-width: 300px;
   flex-direction: column;
-  margin-top: 20px;
-  width: 300px;
+  margin-top: 30px;
   justify-content: space-between;
-  background-color: ${Colors.White};
-  color: ${Colors.Black};
-  padding: 10px;
-  font-weight: 600;
-  border-radius: 13px;
-  text-align: center;
 
   @media (max-width:${BreakPoints.mobileLandscape}px) {
     max-width: 160px;
-    height: 100px;
   }
   @media (min-width:${BreakPoints.mobileLandscape}px) and (max-width:${BreakPoints.tablet}px) {
     max-width: 235px;
+  }
+`
+
+
+const SmallDesc = styled.span`
+  font-size: 80%;
+  font-weight: 600;
+
+  @media (max-width:${BreakPoints.mobileLandscape}px) {
+    font-size: 110%;
+  }
+  @media (min-width:${BreakPoints.mobileLandscape}px) and (max-width:${BreakPoints.tablet}px) {
+    font-size: 90%;
   }
 `

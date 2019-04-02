@@ -56,13 +56,17 @@ class Menu extends React.Component {
         {this.state.MenuState && <LockedMenu />}
         <MyLink onClick={this.handleClick} to="/">HOME</MyLink>
         {!MobileView ? <span>|</span> : <MyHr/>}
-        <MyLink onClick={this.handleClick} to="/#Classes">CLASSES</MyLink>
+        <MyLink onClick={this.handleClick} to="/Classes">CLASSES</MyLink>
         {!MobileView ? <span>|</span> : <MyHr/>}
         <MyLink onClick={this.handleClick} to="/#About">ABOUT</MyLink>
         {!MobileView ? <span>|</span> : <MyHr/>}
         <MyLink onClick={this.handleClick} to="/FAQ">FAQ</MyLink>
         {!MobileView ? <span>|</span> : <MyHr/>}
         <MyLink onClick={this.handleClick} to="/#Contact">CONTACT</MyLink>
+        {MobileView && <MyHr/>}
+        {MobileView && <MyLink onClick={this.handleClick} to="/Events">EVENTS</MyLink>}
+        {MobileView && <MyHr/>}
+        {MobileView && <MyLink onClick={this.handleClick} to="/Trials">TRIALS</MyLink>}
       </WrapperComp>
     )
   }
@@ -191,6 +195,7 @@ const MyLink = styled(Link)`
   padding: 0 5px;
   margin: 0;
   color: inherit;
+  cursor: pointer;
 
   &:visited {
     color: inherit;
