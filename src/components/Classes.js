@@ -7,6 +7,7 @@ import RenderTrial from './RenderTrial'
 // import Loader from './Loader'
 import * as Colors from '../utils/colors'
 import { StaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 
 export default class Classes extends Component {
   render() {
@@ -62,6 +63,8 @@ export default class Classes extends Component {
                 <Larger>Call Today for more details</Larger>
                 <Smaller>715-541-2187</Smaller>
                 <br/>
+                <MyLink to="/Classes">VIEW ALL CLASSES</MyLink>
+                <br/>
                 <MyHR />
                 <br/>
                 <Smaller>Check out our current trial options!</Smaller>
@@ -77,6 +80,7 @@ export default class Classes extends Component {
         <br/>
         <br/>
       </CenterHorizontal>
+      <MyLink to="/Trials">VIEW ALL TRIALS</MyLink>
     </MySection>
     )
   }
@@ -109,4 +113,17 @@ const CenterHorizontal = styled.div`
   flex-direction: column;
   justify-content: center;
   text-align: center;
+`
+
+const MyLink = styled(Link)`
+  color: ${Colors.Green};
+  text-decoration: none;
+  text-align: left;
+
+  &:visited {
+    color: ${Colors.Green};
+  }
+  &:hover {
+    color: ${Colors.Red};
+  }
 `

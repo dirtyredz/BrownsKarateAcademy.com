@@ -46,7 +46,7 @@ exports.createPages = ({ actions, graphql }) => {
       createPage({
         path: `/Classes`,
         component: require.resolve("./src/templates/AllView.js"),
-        context: { data: WithPath },
+        context: { data: WithPath, MyStudio: 'https://www.mystudio.academy/m/?=7155412187/2506///1554236716'},
       })
 
       resolve()
@@ -101,7 +101,7 @@ exports.createPages = ({ actions, graphql }) => {
       createPage({
         path: `/Events`,
         component: require.resolve("./src/templates/AllView.js"),
-        context: { data: WithPath },
+        context: { data: WithPath, MyStudio: 'https://www.mystudio.academy/e/?=7155412187/2506///1554236747'},
       })
 
       resolve()
@@ -156,7 +156,7 @@ exports.createPages = ({ actions, graphql }) => {
       createPage({
         path: `/Trials`,
         component: require.resolve("./src/templates/AllView.js"),
-        context: { data: WithPath },
+        context: { data: WithPath, MyStudio: 'https://www.mystudio.academy/t/?=7155412187/2506///1554236068' },
       })
 
       resolve()

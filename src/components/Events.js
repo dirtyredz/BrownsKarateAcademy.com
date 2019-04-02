@@ -6,6 +6,7 @@ import BreakPoints from '../utils/breakpoints'
 import { GirlKarate3 } from '../components/Icons'
 import RenderEvent from '../components/RenderEvent'
 import { StaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 
 export default class Events extends Component {
   render() {
@@ -50,10 +51,23 @@ export default class Events extends Component {
           }}
         />
         <br />
+        <MyLink to="/Events">VIEW ALL EVENTS</MyLink>
       </MySection>
     )
   }
 }
+
+const MyLink = styled(Link)`
+  color: ${Colors.Red};
+  text-decoration: none;
+
+  &:visited {
+    color: ${Colors.Red};
+  }
+  &:hover {
+    color: ${Colors.Green};
+  }
+`
 
 const MySection = styled(Section)`
   min-height: 500px;

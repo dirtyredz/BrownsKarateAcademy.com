@@ -1,5 +1,4 @@
 import React, { Component }  from "react"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Section from "../components/Section"
@@ -7,6 +6,7 @@ import styled from 'styled-components'
 import RenderClass from '../components/RenderClass'
 import RenderTrial from '../components/RenderTrial'
 import RenderEvent from '../components/RenderEvent'
+import * as Colors from '../utils/colors'
 
 
 class MyStudioView extends Component {
@@ -36,6 +36,8 @@ class MyStudioView extends Component {
               )
             })}
           </Wrapper>
+          <br/>
+          <span>View our trial options via <MyLink href={this.props.pageContext.MyStudio}>MyStudio</MyLink></span>
         </Section>
       </Layout>
     )
@@ -51,4 +53,16 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   margin: 0;
   margin-bottom: 50px;
+`
+
+const MyLink = styled.a`
+  color: ${Colors.Green};
+  text-decoration: none;
+
+  &:visited {
+    color: ${Colors.Green};
+  }
+  &:hover {
+    color: ${Colors.Red};
+  }
 `
