@@ -51,9 +51,9 @@ const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Shojumaru';
     font-display: auto;
-    src: local('Shojumaru'), url('${fonts.YozakuraJP.Shojumaru.TTF}') format('truetype'),
-    url('${fonts.YozakuraJP.Shojumaru.WOFF}') format('woff'),
-    url('${fonts.YozakuraJP.Shojumaru.WOFF2}') format('woff2');
+    src: local('Shojumaru'), url('${fonts.Shojumaru.TTF}') format('truetype'),
+    url('${fonts.Shojumaru.WOFF}') format('woff'),
+    url('${fonts.Shojumaru.WOFF2}') format('woff2');
     font-weight: normal;
     font-style: normal;
   }
