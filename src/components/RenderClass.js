@@ -92,7 +92,7 @@ const ClassWrap = styled.div`
   height: 100%;
   max-width: 300px;
   flex-direction: column;
-  margin-top: 20px;
+  padding-top: 20px;
   justify-content: space-between;
 
   @media (max-width:${BreakPoints.mobileLandscape}px) {

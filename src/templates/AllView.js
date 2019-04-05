@@ -53,6 +53,7 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   margin: 0;
   margin-bottom: 50px;
+  text-align: center;
 `
 
 const MyLink = styled.a`

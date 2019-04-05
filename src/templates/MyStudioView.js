@@ -101,12 +101,12 @@ export default MyStudioView
 
 const GlobalStyle = createGlobalStyle`
   div.popup-content {
-    width: 60% !important;
-    height: 80% !important;
+    width: 60%;
+    height: 80%;
   }
-  @media (min-width:${BreakPoints.mobileLandscape}px) and (max-width:${BreakPoints.tablet}px) {
+  @media (max-width:${BreakPoints.tablet}px) {
     div.popup-content {
-      width: 60% !important;
+      width: 95% !important;
       height: 80% !important;
     }
   }
