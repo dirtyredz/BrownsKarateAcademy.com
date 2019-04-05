@@ -48,6 +48,15 @@ const GlobalStyle = createGlobalStyle`
     font-weight: normal;
     font-style: normal;
   }
+  @font-face {
+    font-family: 'Shojumaru';
+    font-display: auto;
+    src: local('Shojumaru'), url('${fonts.YozakuraJP.Shojumaru.TTF}') format('truetype'),
+    url('${fonts.YozakuraJP.Shojumaru.WOFF}') format('woff'),
+    url('${fonts.YozakuraJP.Shojumaru.WOFF2}') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
   h1,h2,h3,h4,h5,h6 {
     margin: 0;
   }

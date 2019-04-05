@@ -7,6 +7,10 @@ import YozakuraJPRegularWOFF from "./YozakuraJP-regular-webfont.woff"
 import YozakuraJPRegularWOFF2 from "./YozakuraJP-regular-webfont.woff2"
 import YozakuraJPRegularOTF from "./YozakuraJP-regular.otf"
 
+import ShojumaruWOFF from "./Shojumaru.woff"
+import ShojumaruWOFF2 from "./Shojumaru.woff2"
+import ShojumaruTTF from "./Shojumaru.ttf"
+
 const YozakuraJP = {
   Light: {
     TTF: YozakuraJPLightTTF,
@@ -21,4 +25,12 @@ const YozakuraJP = {
   }
 }
 
-export { YozakuraJP }
+const Shojumaru = {
+  Regular: {
+    WOFF: ShojumaruWOFF,
+    WOFF2: ShojumaruWOFF2,
+    TTF: ShojumaruTTF,
+  }
+}
+
+export { YozakuraJP, Shojumaru }
