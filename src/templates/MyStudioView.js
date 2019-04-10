@@ -74,12 +74,12 @@ class MyStudioView extends Component {
               <br />
               <Popup
                 trigger={
-                  <CenterMe>
+                  <CenterMeButton>
                     <MyStudioButton>
                       <div>{ButtonText}</div>
                       <img alt="MyStudio Link" src="https://www.mystudio.academy/v30/WebPortal/image/logo_incourage.png"/>
                     </MyStudioButton>
-                  </CenterMe>
+                  </CenterMeButton>
                 }
                 modal
                 closeOnDocumentClick
@@ -136,7 +136,12 @@ const CenterMe = styled.div`
   display: flex;
   justify-content: center;
 `
-
+const CenterMeButton = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  margin: auto;
+`
 const SubTitleWrap = styled.div`
   font-size: 140%;
   font-weight: 700;
@@ -154,6 +159,7 @@ const MyHR = styled.hr`
   border-bottom: ${Colors.Red} 3px solid;
 `
 const MyStudioButton = styled.button`
+  width: 100%;
   background-color: ${Colors.Red};
   border: none;
   cursor: pointer;
@@ -161,12 +167,17 @@ const MyStudioButton = styled.button`
   flex-direction: column;
   text-align: center;
   padding: 10px;
-  color: ${Colors.White};
+  border-radius: 21px;
+  box-shadow: 2px 3px 6px -2px ${Colors.White};
 
   & > div {
     width: 100%;
   }
   & > img {
     margin: 0;
+  }
+
+  &:hover {
+    box-shadow: unset;
   }
 `
