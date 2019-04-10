@@ -30,7 +30,7 @@ class Menu extends React.Component {
     // this.props.MenuStateChanged(state.isOpen)
   }
   render() {
-    let WrapperComp = Wrapper
+    let WrapperComp = BurgerMenu
     const { breakpoints, currentBreakpoint, NoMobile } = this.props
     const MobileView = !NoMobile && breakpoints[currentBreakpoint] <= breakpoints.tablet
     const MenuProps = {
@@ -43,8 +43,9 @@ class Menu extends React.Component {
     } = this.props
 
     if (MobileView) {
-      WrapperComp = BurgerMenu
       rest = { ...rest, MenuProps }
+    } else {
+      WrapperComp = Wrapper
     }
     return (
       <WrapperComp
