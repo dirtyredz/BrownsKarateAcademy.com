@@ -52,6 +52,7 @@ class Menu extends React.Component {
         {...rest}
         width={ 300 }
         right
+        key="Menu"
       >
         <GlobalStyle />
         {this.state.MenuState && <LockedMenu />}
