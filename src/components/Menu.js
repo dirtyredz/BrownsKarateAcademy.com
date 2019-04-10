@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from "gatsby"
 import { slide as BurgerMenu } from 'react-burger-menu'
 import styled, { createGlobalStyle } from 'styled-components'
-import { withBreakpoints } from 'react-breakpoints'
 import * as Colors from '../utils/colors'
 import BreakPoints from '../utils/breakpoints'
 
@@ -16,84 +15,59 @@ class Menu extends React.Component {
       MenuState: false,
     }
   }
-  TransformLink(link){
-    link = link.replace("/","")
-    link = link.replace("blog/","")
-    return link//.toUpperCase()
-  }
   MenuStateChanged(state){
     this.setState({MenuState: state.isOpen})
-    // this.props.MenuStateChanged(state.isOpen)
   }
   handleClick(e){
     this.setState({MenuState: false})
-    // this.props.MenuStateChanged(state.isOpen)
   }
   render() {
-    let WrapperComp = BurgerMenu
-    const { breakpoints, currentBreakpoint, NoMobile } = this.props
-    const MobileView = !NoMobile && breakpoints[currentBreakpoint] <= breakpoints.tablet
-    const MenuProps = {
-      isOpen: this.state.MenuState,
-      onStateChange: this.MenuStateChanged.bind(this)
-    }
+    return (
+      <BurgerMenu
+        {...this.props}
+        isOpen={this.state.MenuState}
+        onStateChange={this.MenuStateChanged.bind(this)}
+        width={ 300 }
+        right
+        key="Menu"
+      >
+        <GlobalStyle />
+        {this.state.MenuState && <LockedMenu />}
+        <MyLink onClick={this.handleClick} to="/">HOME</MyLink>
+        <MyHr/>
+        <MyLink onClick={this.handleClick} to="/Classes">CLASSES</MyLink>
+        <MyHr/>
+        <MyLink onClick={this.handleClick} to="/#About">ABOUT</MyLink>
+        <MyHr/>
+        <MyLink onClick={this.handleClick} to="/FAQ">FAQ</MyLink>
+        <MyHr/>
+        <MyLink onClick={this.handleClick} to="/#Contact">CONTACT</MyLink>
+        <MyHr/>
+        <MyLink onClick={this.handleClick} to="/Events">EVENTS</MyLink>
+        <MyHr/>
+        <MyLink onClick={this.handleClick} to="/Events">EVENTS</MyLink>
+      </BurgerMenu>
+    )
 
-    let {
-      ...rest
-    } = this.props
-
-    if (MobileView) {
-      rest = { ...rest, MenuProps }
-      return (
-        <BurgerMenu
-          {...rest}
-          width={ 300 }
-          right
-          key="Menu"
-        >
-          <GlobalStyle />
-          {this.state.MenuState && <LockedMenu />}
-          <MyLink onClick={this.handleClick} to="/">HOME</MyLink>
-          <MyHr/>
-          <MyLink onClick={this.handleClick} to="/Classes">CLASSES</MyLink>
-          <MyHr/>
-          <MyLink onClick={this.handleClick} to="/#About">ABOUT</MyLink>
-          <MyHr/>
-          <MyLink onClick={this.handleClick} to="/FAQ">FAQ</MyLink>
-          <MyHr/>
-          <MyLink onClick={this.handleClick} to="/#Contact">CONTACT</MyLink>
-          <MyHr/>
-          <MyLink onClick={this.handleClick} to="/Events">EVENTS</MyLink>
-          <MyHr/>
-          <MyLink onClick={this.handleClick} to="/Events">EVENTS</MyLink>
-        </BurgerMenu>
-      )
-    } else {
-      WrapperComp = Wrapper
-      return (
-        <Wrapper
-          {...rest}
-          key="Menu"
-        >
-          <MyLink onClick={this.handleClick} to="/">HOME</MyLink>
-          <span>|</span>
-          <MyLink onClick={this.handleClick} to="/Classes">CLASSES</MyLink>
-          <span>|</span>
-          <MyLink onClick={this.handleClick} to="/#About">ABOUT</MyLink>
-          <span>|</span>
-          <MyLink onClick={this.handleClick} to="/FAQ">FAQ</MyLink>
-          <span>|</span>
-          <MyLink onClick={this.handleClick} to="/#Contact">CONTACT</MyLink>
-        </Wrapper>
-      )
-    }
   }
 }
+export default Menu
 
-Menu.propTypes = {
+export const FooterMenu = (props) => {
+  return (
+    <Wrapper {...props}>
+      <MyLink to="/">HOME</MyLink>
+      <span>|</span>
+      <MyLink to="/Classes">CLASSES</MyLink>
+      <span>|</span>
+      <MyLink to="/#About">ABOUT</MyLink>
+      <span>|</span>
+      <MyLink to="/FAQ">FAQ</MyLink>
+      <span>|</span>
+      <MyLink to="/#Contact">CONTACT</MyLink>
+    </Wrapper>
+  )
 }
-
-export default withBreakpoints(Menu)
 
 const LockedMenu = createGlobalStyle`
   html > body {

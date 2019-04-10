@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import Section from './Section'
 import * as Colors from '../utils/colors'
-import Menu from './Menu'
+import { FooterMenu as Menu} from './Menu'
 
 const Footer = props => {
   return (
@@ -14,9 +14,7 @@ const Footer = props => {
       tag="footer"
     >
         <CallToday>CALL TODAY&nbsp;&nbsp;715-541-2187</CallToday>
-        <FooterMenu
-          NoMobile
-        />
+        <FooterMenuStyled/>
         <br />
         <br />
         <OnTheRight>
@@ -65,7 +63,7 @@ const OnTheRight = styled.div`
   margin-left: auto;
 `
 
-const FooterMenu = styled(Menu)`
+const FooterMenuStyled = styled(Menu)`
   padding: 5px 20px;
   float: right;
 `
