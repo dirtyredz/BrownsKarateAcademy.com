@@ -31,10 +31,10 @@ const Header = () => (
       >
         <CallToday>CALL TODAY&nbsp;&nbsp;715-541-2187</CallToday>
         <HeaderMenu/>
-        <CenterRow>
+        <CenterRow key="Image">
           <CircleImage fluid={data.placeholderImage.childImageSharp.fluid} />
         </CenterRow>
-        <CenterRow>
+        <CenterRow key="Title">
           <WebsiteTitle>{data.site.siteMetadata.title}</WebsiteTitle>
         </CenterRow>
       </HeaderSection>
