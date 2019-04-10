@@ -10,7 +10,10 @@ export const replaceRenderer = ({ bodyComponent, replaceBodyHTMLString }) => {
 
     const ConnectedBody = () => (
       // <Provider store={store}>
-        <ReactBreakpoints breakpoints={BreakPoints}>
+        <ReactBreakpoints
+          breakpoints={BreakPoints}
+          guessedBreakpoint={BreakPoints.mobile}
+        >
           {bodyComponent}
         </ReactBreakpoints>
       // </Provider>

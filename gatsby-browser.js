@@ -8,7 +8,10 @@ import BreakPoints from './src/utils/breakpoints'
 export const wrapRootElement = ({ element }) => {
   const ConnectedRootElement = (
     // <Provider store={store}>
-      <ReactBreakpoints breakpoints={BreakPoints}>
+      <ReactBreakpoints
+        breakpoints={BreakPoints}
+        guessedBreakpoint={BreakPoints.mobile}
+      >
         {element}
       </ReactBreakpoints>
     // </Provider>
