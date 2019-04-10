@@ -44,33 +44,49 @@ class Menu extends React.Component {
 
     if (MobileView) {
       rest = { ...rest, MenuProps }
+      return (
+        <BurgerMenu
+          {...rest}
+          width={ 300 }
+          right
+          key="Menu"
+        >
+          <GlobalStyle />
+          {this.state.MenuState && <LockedMenu />}
+          <MyLink onClick={this.handleClick} to="/">HOME</MyLink>
+          <MyHr/>
+          <MyLink onClick={this.handleClick} to="/Classes">CLASSES</MyLink>
+          <MyHr/>
+          <MyLink onClick={this.handleClick} to="/#About">ABOUT</MyLink>
+          <MyHr/>
+          <MyLink onClick={this.handleClick} to="/FAQ">FAQ</MyLink>
+          <MyHr/>
+          <MyLink onClick={this.handleClick} to="/#Contact">CONTACT</MyLink>
+          <MyHr/>
+          <MyLink onClick={this.handleClick} to="/Events">EVENTS</MyLink>
+          <MyHr/>
+          <MyLink onClick={this.handleClick} to="/Events">EVENTS</MyLink>
+        </BurgerMenu>
+      )
     } else {
       WrapperComp = Wrapper
+      return (
+        <Wrapper
+          {...rest}
+          key="Menu"
+        >
+          <MyLink onClick={this.handleClick} to="/">HOME</MyLink>
+          <span>|</span>
+          <MyLink onClick={this.handleClick} to="/Classes">CLASSES</MyLink>
+          <span>|</span>
+          <MyLink onClick={this.handleClick} to="/#About">ABOUT</MyLink>
+          <span>|</span>
+          <MyLink onClick={this.handleClick} to="/FAQ">FAQ</MyLink>
+          <span>|</span>
+          <MyLink onClick={this.handleClick} to="/#Contact">CONTACT</MyLink>
+        </Wrapper>
+      )
     }
-    return (
-      <WrapperComp
-        {...rest}
-        width={ 300 }
-        right
-        key="Menu"
-      >
-        <GlobalStyle />
-        {this.state.MenuState && <LockedMenu />}
-        <MyLink onClick={this.handleClick} to="/">HOME</MyLink>
-        {!MobileView ? <span>|</span> : <MyHr/>}
-        <MyLink onClick={this.handleClick} to="/Classes">CLASSES</MyLink>
-        {!MobileView ? <span>|</span> : <MyHr/>}
-        <MyLink onClick={this.handleClick} to="/#About">ABOUT</MyLink>
-        {!MobileView ? <span>|</span> : <MyHr/>}
-        <MyLink onClick={this.handleClick} to="/FAQ">FAQ</MyLink>
-        {!MobileView ? <span>|</span> : <MyHr/>}
-        <MyLink onClick={this.handleClick} to="/#Contact">CONTACT</MyLink>
-        {MobileView && <MyHr/>}
-        {MobileView && <MyLink onClick={this.handleClick} to="/Events">EVENTS</MyLink>}
-        {MobileView && <MyHr/>}
-        {MobileView && <MyLink onClick={this.handleClick} to="/Trials">TRIALS</MyLink>}
-      </WrapperComp>
-    )
   }
 }
 
