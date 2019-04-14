@@ -4,6 +4,7 @@ import { slide as BurgerMenu } from 'react-burger-menu'
 import styled, { createGlobalStyle } from 'styled-components'
 import * as Colors from '../utils/colors'
 import BreakPoints from '../utils/breakpoints'
+import NoScroll from 'no-scroll'
 
 class Menu extends React.Component {
   constructor(){
@@ -15,11 +16,15 @@ class Menu extends React.Component {
       MenuState: false,
     }
   }
+  componentDidMount(){
+    NoScroll.off()
+  }
   MenuStateChanged(state){
+    NoScroll.toggle()
     this.setState({MenuState: state.isOpen})
   }
   handleClick(e){
-    this.setState({MenuState: false})
+    this.MenuStateChanged({isOpen: false})
   }
   render() {
     return (
@@ -32,7 +37,6 @@ class Menu extends React.Component {
         key="Menu"
       >
         <GlobalStyle />
-        {this.state.MenuState && <LockedMenu />}
         <MyLink onClick={this.handleClick} to="/">HOME</MyLink>
         <MyHr/>
         <MyLink onClick={this.handleClick} to="/Classes">CLASSES</MyLink>
@@ -46,6 +50,8 @@ class Menu extends React.Component {
         <MyLink onClick={this.handleClick} to="/Events">EVENTS</MyLink>
         <MyHr/>
         <MyLink onClick={this.handleClick} to="/Events">EVENTS</MyLink>
+        <MyHr/>
+        <MyLink onClick={this.handleClick} to="/Gallery">GALLERY</MyLink>
       </BurgerMenu>
     )
 
@@ -69,17 +75,7 @@ export const FooterMenu = (props) => {
   )
 }
 
-const LockedMenu = createGlobalStyle`
-  html > body {
-    overflow: hidden;
-    max-height: 100vh;
-  }
-`
 const GlobalStyle = createGlobalStyle`
-  body {
-    overflow: unset;
-    max-height: unset;
-  }
   .bm-menu-wrap{
     top: 0px;
   }

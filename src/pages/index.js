@@ -9,10 +9,13 @@ import Schedule from "../components/Schedule"
 import Contact from "../components/Contact"
 import Events from "../components/Events"
 import About from "../components/About"
+import Gallery from "../components/Gallery/Gallery"
 import * as Colors from '../utils/colors'
 import BreakPoints from '../utils/breakpoints'
 import { Dragon, Caligraphy } from '../components/Icons'
 import styled from 'styled-components'
+import Button from '../components/Button'
+import { StaticQuery, graphql } from "gatsby"
 
 const IndexPage = () => (
   <Layout>
@@ -25,6 +28,28 @@ const IndexPage = () => (
     <Schedule />
     <About />
     <Events />
+    <StaticQuery
+      query={graphql`
+        query {
+          allFile(limit: 10, filter: {ext: { eq: ".jpg"}, relativeDirectory: {eq: "gallery"} }) {
+            edges {
+              node {
+                original: childImageSharp {
+                  fluid(maxWidth: 1100, quality: 100) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+        }
+      `}
+      render={data => (
+        <Gallery images={data.allFile.edges}>
+          <Button to="/Gallery" text="VIEW MORE"/>
+        </Gallery>
+      )}
+    />
     <Contact />
   </Layout>
 )

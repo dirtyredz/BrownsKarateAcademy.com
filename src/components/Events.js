@@ -26,6 +26,7 @@ export default class Events extends Component {
         <ReverseKarate />
         <StaticQuery
           query={graphql`
+
             query {
               allSitePage(filter: { context: { Type: { eq: "e" }}}) {
                 edges {

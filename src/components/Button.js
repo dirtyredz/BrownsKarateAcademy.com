@@ -18,6 +18,7 @@ export default class Button extends Component {
   }
 
   render() {
+    const ButtonComponent = this.props.to ? ButtonLink : MyButton
     const Index = typeof this.props.index === "number" ? this.props.index : Math.floor(Math.random() * 2)
     return (
       <HeadShake
@@ -27,19 +28,34 @@ export default class Button extends Component {
         duration={500}
       >
         <ButtonWrap>
-          <ButtonLink
+          <ButtonComponent
             onMouseEnter={this.handleEnterMouse.bind(this)}
             {...this.props}
             color={Index % 2 ? Colors.Green : Colors.Red}
             >
             {this.props.text ? this.props.text : "LEARN MORE"}
-          </ButtonLink>
+          </ButtonComponent>
         </ButtonWrap>
       </HeadShake>
     )
   }
 }
 
+const MyButton = styled.button`
+  background-color: ${(prop) => prop.color};
+  max-width: 180px;
+  padding: 10px;
+  color: ${Colors.White};
+  text-decoration: none;
+  border: none;
+  
+  &:hover, &:hover:visited {
+    color: ${Colors.Black}
+  }
+  &:visited {
+    color: ${Colors.White};
+  }
+`
 const ButtonLink = styled(Link)`
   background-color: ${(prop) => prop.color};
   max-width: 180px;
