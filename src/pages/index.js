@@ -27,29 +27,31 @@ const IndexPage = () => (
     <MyCaligraphy style={{height: 'unset'}}/>
     <Schedule />
     <About />
-    <Events />
-    <StaticQuery
-      query={graphql`
-        query {
-          allFile(limit: 10, filter: {ext: { eq: ".jpg"}, relativeDirectory: {eq: "gallery"} }) {
-            edges {
-              node {
-                original: childImageSharp {
-                  fluid(maxWidth: 1100, quality: 100) {
-                    ...GatsbyImageSharpFluid
+    <Events>
+      <StaticQuery
+        query={graphql`
+          query {
+            allFile(limit: 10, filter: {ext: { eq: ".jpg"}, relativeDirectory: {eq: "gallery"} }) {
+              edges {
+                node {
+                  original: childImageSharp {
+                    fluid(maxWidth: 1100, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
                   }
                 }
               }
             }
           }
-        }
-      `}
-      render={data => (
-        <Gallery images={data.allFile.edges}>
-          <Button to="/Gallery" text="VIEW MORE"/>
-        </Gallery>
-      )}
-    />
+        `}
+        render={data => (
+          <Gallery images={data.allFile.edges}>
+            <Button to="/Gallery" text="VIEW MORE"/>
+          </Gallery>
+        )}
+      />
+    </Events>
+    
     <Contact />
   </Layout>
 )

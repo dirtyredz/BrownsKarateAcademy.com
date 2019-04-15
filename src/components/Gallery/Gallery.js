@@ -65,13 +65,11 @@ export default class Gallery extends Component {
 
   render() {
     return (
-      <Section
-        color={Colors.Black}
-        bgColor={Colors.Grey}
-        anchor="Events"
-        scales={true}
-      >
+      <>
         <GlobalStyle />
+        <CenterHorizontal>
+          <h1>GALLERY</h1>
+        </CenterHorizontal>
         <Wrapper>
           <Zoom cascade>
           {this.props.images.map((image, index) => {
@@ -106,12 +104,14 @@ export default class Gallery extends Component {
           )}
         </Wrapper>
         {this.props.children}
-      </Section>
+      </>
     )
   }
 }
 
-
+const CenterHorizontal = styled.div`
+  text-align: center;
+`
 
 const GlobalStyle = createGlobalStyle`
   .ReactModal__Overlay{

@@ -46,17 +46,41 @@ export default class Events extends Component {
             const Events = data.allSitePage.edges
             return (
               <EventsWrapper>
-                {Events.map((classInfo, index) => <RenderEvent key={`Event_${classInfo.ID}`} index={index} data={classInfo.node}/>)}
+                {Events.length > 0
+                  ? Events.map((classInfo, index) => <RenderEvent key={`Event_${classInfo.ID}`} index={index} data={classInfo.node}/>)
+                  : (<MySpan>
+                      We seem to not have any events going on right now.
+                      <br/>
+                      Please check back tomorrow or call: 715-541-2187
+                    </MySpan>
+                    )}
               </EventsWrapper>
             )
           }}
         />
+        <br/>
+        <br/>
         <br />
+        <br/>
+        <br/>
         <MyLink to="/Events">VIEW ALL EVENTS</MyLink>
+        <br/>
+        <MyHR />
+        {this.props.children}
       </MySection>
     )
   }
 }
+
+const MyHR = styled.hr`
+  border-bottom: ${Colors.Red} 3px solid;
+`
+
+const MySpan = styled.div`
+  font-size: 140%;
+  text-align: center;
+  font-weight: 600;
+`
 
 const MyLink = styled(Link)`
   color: ${Colors.Red};
@@ -89,7 +113,7 @@ const CenterHorizontal = styled.div`
 
 const RedTitle = styled.h1`
   color: ${Colors.Red};
-  padding-left: 10vw;
+  padding-left: 0vw;
   margin-top: -35px;
   text-align: center;
   @media (max-width:${BreakPoints.mobileLandscape}px) {
