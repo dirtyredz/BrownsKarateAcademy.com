@@ -58,21 +58,21 @@ const Wrapper = styled.div`
 
 const Box = styled.div`
   background-color: ${Colors.Green};
-  clip-path: polygon(100% 0,100% 100%,calc(calc(100px + 10vw) / 14) 100%,calc(calc(100px + 10vw) / 2.5) calc(calc(100px + 10vw) / 1.8),calc(calc(100px + 10vw) / 2.2) calc(calc(100px + 10vw) / 2.5),calc(calc(100px + 10vw) / 2) 0);
+  clip-path: polygon(100% 0,100% 100%,calc((10vw + 100px) / 14) 100%,calc((10vw + 100px) / 2.5) calc((10vw + 100px) / 1.8),calc((10vw + 100px) / 2.2) calc((10vw + 100px) / 2.5),calc((10vw + 100px) / 2) 0);
   position: absolute;
   /* z-index: 2; */
   top: 0;
   color: white;
   left: 0;
   width: 100%;
-  height: calc(calc(100px + 10vw) - 12px);
+  height: calc(10vw + 100px - 12px);
   margin: 6px 0;
   @media ${`(max-width: ${BreakPoints.tablet}px)`} {
-    height: calc(calc(100px + 10vw) - 8px);
+    height: calc(10vw + 100px - 8px);
     margin: 4px 0;
   }
   @media ${`(max-width: ${BreakPoints.mobile}px)`} {
-    height: calc(calc(100px + 10vw) - 6px);
+    height: calc(10vw + 100px - 6px);
     margin: 3px 0;
   }
 `

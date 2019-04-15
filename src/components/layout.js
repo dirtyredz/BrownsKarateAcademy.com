@@ -43,17 +43,17 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Yozakura JP';
     font-display: auto;
     src: local('YozakuraJP-Regular'), url('${fonts.YozakuraJP.Regular.OTF}') format('otf'),
-    url('${fonts.YozakuraJP.Regular.WOFF}') format('woff'),
-    url('${fonts.YozakuraJP.Regular.WOFF2}') format('woff2');
+      url('${fonts.YozakuraJP.Regular.WOFF}') format('woff'),
+      url('${fonts.YozakuraJP.Regular.WOFF2}') format('woff2');
     font-weight: normal;
     font-style: normal;
   }
   @font-face {
     font-family: 'Shojumaru';
     font-display: auto;
-    src: local('Shojumaru'), url('${fonts.Shojumaru.TTF}') format('truetype'),
-    url('${fonts.Shojumaru.WOFF}') format('woff'),
-    url('${fonts.Shojumaru.WOFF2}') format('woff2');
+    src: local('Shojumaru'), url('${fonts.Shojumaru.Regular.TTF}') format('truetype'),
+      url('${fonts.Shojumaru.Regular.WOFF}') format('woff'),
+      url('${fonts.Shojumaru.Regular.WOFF2}') format('woff2');
     font-weight: normal;
     font-style: normal;
   }

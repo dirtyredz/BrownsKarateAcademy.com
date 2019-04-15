@@ -156,8 +156,10 @@ const Wrapper = styled.div`
   margin: 50px auto;
 
   & > *{
-    flex: 1;
-
+    flex: 1 1 230px;
+    @media (max-width:${BreakPoints.tablet}px) {
+      flex: 1 1 100px;
+    }
     &:hover{
       z-index: 99;
     }
