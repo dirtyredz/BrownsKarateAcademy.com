@@ -171,6 +171,15 @@ class SignUpPage extends Component {
                   <SubTitle>Installing The App</SubTitle>
                   <br/>
                   <br/>
+                  <span>
+                    These links will take you to the app, otherwise you can search for the app
+                    <br/>
+                    You can use search terms "MyStudio App", or "MyStudio Academy"
+                    <br/>
+                    Android: <a href="https://play.google.com/store/apps/details?id=com.mystudio.app">https://play.google.com/store/apps/details?id=com.mystudio.app</a>
+                    <br/>
+                    Itunes: <a href="https://itunes.apple.com/us/app/mystudio-app/id1258207230?mt=8">https://itunes.apple.com/us/app/mystudio-app/id1258207230?mt=8</a>
+                  </span>
                   <CenterImg>
                     <MyImg fluid={data.Search.childImageSharp.fluid}/>
                   </CenterImg>
@@ -324,6 +333,8 @@ class SignUpPage extends Component {
                   <br/>
                   <span>After everything is filled out select the button at the bottom to pay any fees due immediatly and sign up for your class.</span>
                   <br/>
+                  <br/>
+                  <a href="https://drive.google.com/file/d/17joxDq2Gi2IiKERyTlTvFJ15Zk_KaESV/view">More Instructions from MyStudio Here.</a>
                   <br/>
                   <br/>
                   <h3>We look forward to seeing you soon!</h3>
