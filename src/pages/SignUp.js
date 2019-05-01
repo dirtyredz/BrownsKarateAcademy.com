@@ -195,13 +195,6 @@ class SignUpPage extends Component {
                   <SubTitle>Sign up for MyStudio</SubTitle>
                   <br/>
                   <br/>
-                  <span>Enter the Studio Code "7155412187".</span>
-                  <br/>
-                  <CenterImg>
-                    <MyImg fluid={data.StudioCode.childImageSharp.fluid}/>
-                  </CenterImg>
-                  <br/>
-                  <br/>
                   <span>
                     Select "Studio Member Log In".
                   </span>
@@ -217,6 +210,13 @@ class SignUpPage extends Component {
                   <br/>
                   <CenterImg>
                     <MyImg fluid={data.NewUser.childImageSharp.fluid}/>
+                  </CenterImg>
+                  <br/>
+                  <br/>
+                  <span>Enter the Studio Code "7155412187".</span>
+                  <br/>
+                  <CenterImg>
+                    <MyImg fluid={data.StudioCode.childImageSharp.fluid}/>
                   </CenterImg>
                   <br/>
                   <br/>
