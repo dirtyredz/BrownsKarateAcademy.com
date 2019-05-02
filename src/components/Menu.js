@@ -20,7 +20,11 @@ class Menu extends React.Component {
     NoScroll.off()
   }
   MenuStateChanged(state){
-    NoScroll.toggle()
+    if (state.isOpen) {
+      NoScroll.on()
+    } else {
+      NoScroll.off()
+    }
     this.setState({MenuState: state.isOpen})
   }
   handleClick(e){
