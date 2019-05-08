@@ -1,4 +1,4 @@
-import React, { Component }  from "react"
+import React  from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -6,98 +6,89 @@ import Section from "../components/Section"
 import * as Colors from '../utils/colors'
 import BreakPoints from '../utils/breakpoints'
 import styled, { createGlobalStyle } from 'styled-components'
-import Fade from 'react-reveal/Fade';
 import Popup from "reactjs-popup";
 import sanitizeHtml from 'sanitize-html'
 
-class MyStudioView extends Component {
-  render() {
-    const Title = this.props.pageContext ? this.props.pageContext.Title : ''
-    const Image = this.props.pageContext ? this.props.pageContext.Image : false
-    const SubTitle = this.props.pageContext ? this.props.pageContext.SubTitle : ''
-    const Description = this.props.pageContext ? this.props.pageContext.Description : '404'
-    const Iframe = this.props.pageContext ? this.props.pageContext.MyStudio : false
-    const Type = this.props.pageContext ? this.props.pageContext.Type : 'm'
-    let ButtonText = ''
-    switch (Type) {
-      case 'm':
-        ButtonText="Membership Options"
-        break;
-      case 'e':
-        ButtonText="Register for Event"
-        break;
-      case 't':
-        ButtonText="Sign Up Today"
-        break;
-      default:
-        break;
-    }
-    return (
-      <Layout>
-        <SEO title="MyStudio" keywords={[`MyStudio`, `react`]} />
-        <GlobalStyle />
-        <Section>
-          <Fade bottom cascade>
-            <div>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              <TitleWrap>{Title}</TitleWrap>
-              <br/>
-              <CenterMe>
-                {Image && <img alt={Image} src={Image}/>}
-              </CenterMe>
-              <br/>
-              <SubTitleWrap>{SubTitle}</SubTitleWrap>
-              <br/>
-              <br/>
-              <DescriptionWrap
-                dangerouslySetInnerHTML={{
-                  __html: sanitizeHtml(
-                    Description,
-                    {
-                      allowedTags: [ 'b', 'br', 'span', 'i', 'em', 'strong', 'a' ],
-                      allowedAttributes: {
-                        'a': [ 'href' ]
-                      }
-                    }
-                  )
-                }}
-              />
-              <br/>
-              <MyHR/>
-              <br/>
-              <CenterMe>
-                Click below to see available options!
-              </CenterMe>
-              <br />
-              <Popup
-                trigger={
-                  <CenterMeButton>
-                    <MyStudioButton>
-                      <div>{ButtonText}</div>
-                      <img alt="MyStudio Link" src="https://www.mystudio.academy/v30/WebPortal/image/logo_incourage.png"/>
-                    </MyStudioButton>
-                  </CenterMeButton>
-                }
-                modal
-                closeOnDocumentClick
-              >
-                <Wrapper>
-                  {Iframe && <MyIframe src={Iframe}></MyIframe>}
-                </Wrapper>
-              </Popup>
-            </div>
-          </Fade>
-        </Section>
-      </Layout>
-    )
+const MyStudioView = (props) => {
+  const Title = props.pageContext ? props.pageContext.Title : ''
+  const Image = props.pageContext ? props.pageContext.Image : false
+  const SubTitle = props.pageContext ? props.pageContext.SubTitle : ''
+  const Description = props.pageContext ? props.pageContext.Description : '404'
+  const Iframe = props.pageContext ? props.pageContext.MyStudio : false
+  const Type = props.pageContext ? props.pageContext.Type : 'm'
+  let ButtonText = ''
+  switch (Type) {
+    case 'm':
+      ButtonText="Membership Options"
+      break;
+    case 'e':
+      ButtonText="Register for Event"
+      break;
+    case 't':
+      ButtonText="Sign Up Today"
+      break;
+    default:
+      break;
   }
+  return (
+    <Layout>
+      <SEO title="MyStudio" keywords={[`MyStudio`, `react`]} />
+      <GlobalStyle />
+      <Section>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <TitleWrap>{Title}</TitleWrap>
+        <br/>
+        <CenterMe>
+          {Image && <img alt={Image} src={Image}/>}
+        </CenterMe>
+        <br/>
+        <SubTitleWrap>{SubTitle}</SubTitleWrap>
+        <br/>
+        <br/>
+        <DescriptionWrap
+          dangerouslySetInnerHTML={{
+            __html: sanitizeHtml(
+              Description,
+              {
+                allowedTags: [ 'b', 'br', 'span', 'i', 'em', 'strong', 'a' ],
+                allowedAttributes: {
+                  'a': [ 'href' ]
+                }
+              }
+            )
+          }}
+        />
+        <br/>
+        <MyHR/>
+        <br/>
+        <CenterMe>
+          Click below to see available options!
+        </CenterMe>
+        <br />
+        <Popup
+          trigger={
+            <CenterMeButton>
+              <MyStudioButton>
+                <div>{ButtonText}</div>
+                <img alt="MyStudio Link" src="https://www.mystudio.academy/v30/WebPortal/image/logo_incourage.png"/>
+              </MyStudioButton>
+            </CenterMeButton>
+          }
+          modal
+          closeOnDocumentClick
+        >
+          <Wrapper>
+            {Iframe && <MyIframe src={Iframe}></MyIframe>}
+          </Wrapper>
+        </Popup>
+      </Section>
+    </Layout>
+  )
 }
-
 export default MyStudioView
-
 
 const GlobalStyle = createGlobalStyle`
   div.popup-content {

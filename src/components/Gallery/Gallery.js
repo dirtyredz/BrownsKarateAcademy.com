@@ -3,11 +3,10 @@ import Img from "gatsby-image"
 import Modal from 'react-modal';
 import styled, { createGlobalStyle } from 'styled-components'
 import Zoom from 'react-reveal/Zoom';
-import Section from './../Section'
-import * as Colors from '../../utils/colors'
 import NoScroll from 'no-scroll'
 import ImageModal from './Modal'
 import BreakPoints from '../../utils/breakpoints'
+import ErrorBoundary from '../ErrorBoundary'
 
 export default class Gallery extends Component {
   constructor() {
@@ -71,25 +70,49 @@ export default class Gallery extends Component {
           <h1>GALLERY</h1>
         </CenterHorizontal>
         <Wrapper>
-          <Zoom cascade>
-          {this.props.images.map((image, index) => {
-            const {
-              original,
-            } = image.node
-            return (
-              <ImageWrapper
-                onClick={this.openModal.bind(this, index)}
-                key={`Image_${index}`}
-              >
-                <MyImage
-                  key={`thumbnail_${index}`}
-                  larger={this.state.openedIndex === index}
-                  fluid={original.fluid}
-                />
-              </ImageWrapper>
-            )
-          })}
-          </Zoom>
+          <ErrorBoundary
+            FallbackComponent={
+              <>
+                {this.props.images.map((image, index) => {
+                  const {
+                    original,
+                  } = image.node
+                  return (
+                    <ImageWrapper
+                      onClick={this.openModal.bind(this, index)}
+                      key={`Image_${index}`}
+                    >
+                      <MyImage
+                        key={`thumbnail_${index}`}
+                        larger={this.state.openedIndex === index}
+                        fluid={original.fluid}
+                      />
+                    </ImageWrapper>
+                  )
+                })}
+              </>
+            }
+          >
+            <Zoom cascade>
+              {this.props.images.map((image, index) => {
+                const {
+                  original,
+                } = image.node
+                return (
+                  <ImageWrapper
+                    onClick={this.openModal.bind(this, index)}
+                    key={`Image_${index}`}
+                  >
+                    <MyImage
+                      key={`thumbnail_${index}`}
+                      larger={this.state.openedIndex === index}
+                      fluid={original.fluid}
+                    />
+                  </ImageWrapper>
+                )
+              })}
+            </Zoom>
+          </ErrorBoundary>
           {typeof this.state.openedIndex == 'number' &&  (
             <ImageModal
               isOpen={this.state.modalIsOpen}

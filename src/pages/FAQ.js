@@ -6,6 +6,7 @@ import Section from "../components/Section"
 import * as Colors from '../utils/colors'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade';
+import ErrorBoundary from '../components/ErrorBoundary'
 
 class FaqPage extends Component {
   handleClick(index) {
@@ -17,30 +18,43 @@ class FaqPage extends Component {
     return (
       <Layout>
         <SEO title="FAQ" keywords={[`FAQ`, `react`]} />
-        <Section
-
-        >
-        <Fade bottom cascade>
-          <ul>
-            {/* <TransitionGroup {...groupProps}> */}
-              {QuestionsAndAnswers.map((QA, index) => (
-                <ListItem key={`Q_A_${index}`} onClick={this.handleClick.bind(this,index)}>
-                  <HoverMe><span>{QA.Q}</span></HoverMe>
-                  {QA.Show && (
-                    <Fade bottom>
-                      <br/>
-                      <LightGray >A.&nbsp;&nbsp;{QA.A}</LightGray>
-                    </Fade>
-                  )}
-                </ListItem>
-              ))}
-            {/* </TransitionGroup> */}
-          </ul>
-          </Fade>
+        <Section>
+          <ErrorBoundary FallbackComponent={<TheFAQ handleClick={this.handleClick.bind(this)} />}>
+            <Fade bottom cascade>
+              <TheFAQ handleClick={this.handleClick} />
+            </Fade>
+          </ErrorBoundary>
         </Section>
       </Layout>
     )
   }
+}
+
+const TheFAQ = ({handleClick}) => {
+  return (
+    <ul>
+      {QuestionsAndAnswers.map((QA, index) => (
+        <ListItem key={`Q_A_${index}`} onClick={handleClick.bind(this,index)}>
+          <HoverMe><span>{QA.Q}</span></HoverMe>
+          {QA.Show && (
+            <ErrorBoundary
+              FallbackComponent={
+                <>
+                  <br/>
+                  <LightGray >A.&nbsp;&nbsp;{QA.A}</LightGray>
+                </>
+              }
+            >
+              <Fade bottom>
+                <br/>
+                <LightGray >A.&nbsp;&nbsp;{QA.A}</LightGray>
+              </Fade>
+            </ErrorBoundary>
+          )}
+        </ListItem>
+      ))}
+    </ul>
+  )
 }
 
 export default FaqPage

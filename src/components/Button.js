@@ -3,33 +3,8 @@ import styled from 'styled-components'
 import * as Colors from '../utils/colors'
 import { Link } from "gatsby"
 import HeadShake from 'react-reveal/HeadShake';
+import ErrorBoundary from './ErrorBoundary'
 
-class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  componentDidCatch(error, info) {
-    // Display fallback UI
-    this.setState({ hasError: true });
-    // You can also log the error to an error reporting service
-    window.Sentry.configureScope((scope) => {
-      Object.keys(info).forEach(key => {
-        scope.setExtra(key, info[key]);
-      });
-    });
-    window.Sentry.captureException(error);
-  }
-
-  render() {
-    if (this.state.hasError) {
-      // You can render any custom fallback UI
-      return <MyButton />;
-    }
-    return this.props.children;
-  }
-}
 export default class Main extends Component {
   constructor() {
     super()
@@ -47,7 +22,7 @@ export default class Main extends Component {
 
   render() {
     return (
-      <ErrorBoundary>
+      <ErrorBoundary FallbackComponent={<MyButton handleEnter={this.handleEnterMouse} {...this.props}/>}>
         <HeadShake
           spy={this.state.counter}
           appear
@@ -61,22 +36,20 @@ export default class Main extends Component {
   }
 }
 
-class MyButton extends Component {
-  render() {
-    const ButtonComponent = this.props.to ? ButtonLink : TheButton
-    const Index = typeof this.props.index === "number" ? this.props.index : Math.floor(Math.random() * 2)
-    return (
-      <ButtonWrap>
-        <ButtonComponent
-          onMouseEnter={this.props.handleEnter}
-          {...this.props}
-          color={Index % 2 ? Colors.Green : Colors.Red}
-          >
-          {this.props.text ? this.props.text : "LEARN MORE"}
-        </ButtonComponent>
-      </ButtonWrap>
-    )
-  }
+const MyButton = (props) => {
+  const ButtonComponent = props.to ? ButtonLink : TheButton
+  const Index = typeof props.index === "number" ? props.index : Math.floor(Math.random() * 2)
+  return (
+    <ButtonWrap as="span" >
+      <ButtonComponent
+        onMouseEnter={props.handleEnter}
+        {...props}
+        color={Index % 2 ? Colors.Green : Colors.Red}
+        >
+        {props.text ? props.text : "LEARN MORE"}
+      </ButtonComponent>
+    </ButtonWrap>
+  )
 }
 
 const TheButton = styled.button`

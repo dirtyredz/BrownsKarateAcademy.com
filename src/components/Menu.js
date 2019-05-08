@@ -53,9 +53,9 @@ class Menu extends React.Component {
         <MyHr/>
         <MyLink onClick={this.handleClick} to="/Events">EVENTS</MyLink>
         <MyHr/>
-        <MyLink onClick={this.handleClick} to="/Events">EVENTS</MyLink>
-        <MyHr/>
         <MyLink onClick={this.handleClick} to="/Gallery">GALLERY</MyLink>
+        <MyHr/>
+        <MyLink onClick={this.handleClick} to="/SignUp">SIGN UP INSTRUCTIONS</MyLink>
       </BurgerMenu>
     )
 

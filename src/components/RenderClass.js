@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import BreakPoints from '../utils/breakpoints'
 import Button from './Button'
 import Roll from 'react-reveal/Roll'; // Importing Zoom effect
+import ErrorBoundary from './ErrorBoundary'
 
 
 const GetSmallDescription = (title, description) => {
@@ -26,29 +27,39 @@ const GetSmallDescription = (title, description) => {
 
 export default class RenderClass extends Component {
   render() {
-    const { data, index } = this.props
-    let { context, path } = data
-    if (!context) {
-      context = data
-    }
+    const { index } = this.props
     return (
-      <Roll delay={index * 500} >
-        <ClassWrap>
-          <TitleWrap Rotate={index % 2 ? 10 : 170}>
-            <span>{context.Title}</span>
-          </TitleWrap>
-          <br/>
-          <SmallDesc>{GetSmallDescription(context.Title, context.Description)}</SmallDesc>
-          <br/>
-          <Button
-            text="VIEW CLASS"
-            aria-label={`Class ${context.Title}`}
-            to={path}
-            index={index} />
-        </ClassWrap>
-       </Roll>
+      <ErrorBoundary FallbackComponent={
+        <Class {...this.props}/>
+      }>
+        <Roll delay={index * 500} >
+          <Class {...this.props}/>
+        </Roll>
+       </ErrorBoundary>
     )
   }
+}
+
+const Class = ({ data, index }) => {
+  let { context, path } = data
+  if (!context) {
+    context = data
+  }
+  return (
+    <ClassWrap>
+      <TitleWrap Rotate={index % 2 ? 10 : 170}>
+        <span>{context.Title}</span>
+      </TitleWrap>
+      <br/>
+      <SmallDesc>{GetSmallDescription(context.Title, context.Description)}</SmallDesc>
+      <br/>
+      <Button
+        text="VIEW CLASS"
+        aria-label={`Class ${context.Title}`}
+        to={path}
+        index={index} />
+    </ClassWrap>
+  )
 }
 
 const TitleWrap = styled.div`

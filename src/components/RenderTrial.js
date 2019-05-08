@@ -4,27 +4,36 @@ import BreakPoints from '../utils/breakpoints'
 import Button from './Button'
 import Fade from 'react-reveal/Fade'; // Importing Zoom effect
 import * as Colors from '../utils/colors'
+import ErrorBoundary from './ErrorBoundary'
 
 export default class RenderTrial extends Component {
   render() {
-    const { data, index } = this.props
-    let { context, path } = data
-    if (!context) {
-      context = data
-    }
+    const { index } = this.props
     return (
-      <Fade delay={index * 500} >
-        <TrialWrap>
-          <span>{context.Title}</span>
-          <Button
-            text="VIEW TRIAL"
-            aria-label={`Trial ${context.Title}`}
-            to={path}
-            index={index} />
-        </TrialWrap>
-       </Fade>
+      <ErrorBoundary FallbackComponent={<TheTrial {...this.props} />}>
+        <Fade delay={index * 500} >
+          <TheTrial {...this.props} />
+        </Fade>
+      </ErrorBoundary>
     )
   }
+}
+
+const TheTrial = ({ data, index }) => {
+  let { context, path } = data
+  if (!context) {
+    context = data
+  }
+  return (
+    <TrialWrap>
+      <span>{context.Title}</span>
+      <Button
+        text="VIEW TRIAL"
+        aria-label={`Trial ${context.Title}`}
+        to={path}
+        index={index} />
+    </TrialWrap>
+  )
 }
 
 const TrialWrap = styled.div`
