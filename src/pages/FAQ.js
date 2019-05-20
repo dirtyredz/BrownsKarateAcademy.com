@@ -21,7 +21,7 @@ class FaqPage extends Component {
         <Section>
           <ErrorBoundary FallbackComponent={<TheFAQ handleClick={this.handleClick.bind(this)} />}>
             <Fade bottom cascade>
-              <TheFAQ handleClick={this.handleClick} />
+              <TheFAQ handleClick={this.handleClick.bind(this)} />
             </Fade>
           </ErrorBoundary>
         </Section>
