@@ -85,6 +85,7 @@ class Calendar extends Component {
             render={data => {
               const recurringEvents = ProcessRecurringEvents(data.allIcal.edges.filter(edge => edge.node.rrule).map(edge => edge.node))
               const singleEvents = ProcessSingleEvents(data.allIcal.edges.filter(edge => !edge.node.rrule).map(edge => edge.node))
+              console.log(data, recurringEvents, singleEvents)
               return (
                 <>
                   <BigCalendar
