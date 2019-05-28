@@ -13,17 +13,19 @@ import BigCalendar from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 
 
-BigCalendar.momentLocalizer(moment)
 
 
 class Calendar extends Component {
   constructor () {
     super()
     this.state = {
-      events: []
+      events: [],
+      localizer: BigCalendar.momentLocalizer(moment)
     }
   }
   componentDidMount () {
+    this.setState({localizer: BigCalendar.momentLocalizer(moment)})
+
     // getBarronClass()
     // .then(data => {
     //   console.log(data)
@@ -86,7 +88,7 @@ class Calendar extends Component {
               return (
                 <>
                   <BigCalendar
-                    localizer={BigCalendar.momentLocalizer(moment)}
+                    localizer={this.state.localizer}
                     style={{height: '420px'}}
                     events={[...recurringEvents, ...singleEvents, ...this.state.events]}
                     startAccessor="start"
