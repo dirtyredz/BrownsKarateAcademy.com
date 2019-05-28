@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Section from "./Section"
 import * as Colors from '../utils/colors'
 import BreakPoints from '../utils/breakpoints'
+import { Link } from "gatsby"
 
 export default class Schedule extends Component {
   constructor() {
@@ -34,6 +35,10 @@ export default class Schedule extends Component {
           <Time>6:00-6:45pm Weapons (Ages 7 +)</Time>
           <Time>6:45-7:45pm Adults (Ages 14 +)</Time>
         </Verticle>
+        <br />
+        <br />
+        <br />
+        <MyLink to="/Calendar">View Our Calendar</MyLink>
         <BottomRight>
           Schedules may vary,
           Please call with any questions: 715-541-2187
@@ -79,5 +84,24 @@ const BottomRight = styled.div`
   @media (min-width:${BreakPoints.mobileLandscape}px) and (max-width:${BreakPoints.tablet}px) {
     font-size: 100%;
     width: 250px;
+  }
+`
+
+const MyLink = styled(Link)`
+  text-decoration: none;
+  padding: 0 5px;
+  margin: 0;
+  color: #fff;
+  cursor: pointer;
+  font-size: 120%;
+  font-weight: 400;
+  margin-left: 10%;
+
+  &:visited {
+    color: #fff;
+  }
+
+  &:hover {
+    color: ${Colors.Green};
   }
 `

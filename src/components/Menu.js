@@ -45,6 +45,8 @@ class Menu extends React.Component {
         <MyHr/>
         <MyLink onClick={this.handleClick} to="/Classes">CLASSES</MyLink>
         <MyHr/>
+        <MyLink onClick={this.handleClick} to="/Calendar">CALENDAR</MyLink>
+        <MyHr/>
         <MyLink onClick={this.handleClick} to="/#About">ABOUT</MyLink>
         <MyHr/>
         <MyLink onClick={this.handleClick} to="/FAQ">FAQ</MyLink>

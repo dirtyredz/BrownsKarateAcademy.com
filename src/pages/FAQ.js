@@ -17,7 +17,7 @@ class FaqPage extends Component {
   render() {
     return (
       <Layout>
-        <SEO title="FAQ" keywords={[`FAQ`, `react`]} />
+        <SEO title="FAQ" keywords={[`FAQ`]} />
         <Section>
           <ErrorBoundary FallbackComponent={<TheFAQ handleClick={this.handleClick.bind(this)} />}>
             <Fade bottom cascade>

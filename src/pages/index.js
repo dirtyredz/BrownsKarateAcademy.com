@@ -19,7 +19,7 @@ import { StaticQuery, graphql } from "gatsby"
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="Home" />
     <GreenBox />
     <Welcome />
     <MyDragon style={{height: 'unset'}}/>

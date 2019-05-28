@@ -11,7 +11,7 @@ class SignUpPage extends Component {
   render() {
     return (
       <Layout>
-        <SEO title="SignUp" keywords={[`SignUp`]} />
+        <SEO title="SignUp" keywords={[`SignUp`, 'Instructions']} />
         <StaticQuery
           query={graphql`
             query {
