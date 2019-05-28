@@ -63,35 +63,35 @@ export function getOutsideEvents () {
 }
 
 
-function ProcessRecurringEvents(events, color) {
+export function ProcessRecurringEvents(events, color) {
   return events.map(event => {
     const startDate = moment(getDate(event.start)).utc().format('YYYYMMDD[T]HHmmss[Z]')
     const length = moment(getDate(event.end)).diff(moment(getDate(event.start)))
-    const rule = rrulestr(`DTSTART:${startDate}\n${event.recurrence[0]}`)
+    const rule = rrulestr(event.rrule ? event.rrule : `DTSTART:${startDate}\n${event.recurrence[0]}`)
     const startDates = rule.between(new Date(BetweenStart), new Date(BetweenEnd))
     return startDates.map(start => {
       return {
         start: moment(start).toDate(),
         end: moment(start).add(length, 'milliseconds').toDate(),
         title: `${moment(start).format('h A')} ${event.summary}`,
-        color: color
+        color: event.other ? event.other.color : color
       }
     })
   }).reduce((a, b) => [...a, ...b], [])
 }
 
-function ProcessSingleEvents(events, color) {
+export function ProcessSingleEvents(events, color) {
   return events.map(event => {
     const startDate = moment(getDate(event.start)).utc()
     return {
       start: startDate.toDate(),
       end: moment(getDate(event.end)).utc().toDate(),
       title: `${startDate.format('h A')} ${event.summary}`,
-      color: color
+      color: event.other ? event.other.color : color
     }
   })
 }
 
 function getDate(eventObj) {
-  return eventObj.date ? eventObj.date : eventObj.dateTime
+  return eventObj.date ? eventObj.date : eventObj.dateTime ? eventObj.dateTime : eventObj
 }

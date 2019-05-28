@@ -22,6 +22,7 @@
     "gatsby-plugin-typography": "^2.2.10",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.0.27",
+    "gatsby-source-ical": "github:dirtyredz/gatsby-source-ical",
     "gatsby-transformer-sharp": "^2.1.17",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.25",
