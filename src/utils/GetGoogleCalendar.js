@@ -65,7 +65,7 @@ export function getOutsideEvents () {
 
 export function ProcessRecurringEvents(events, color) {
   return events.map(event => {
-    const startDate = moment(getDate(event.start)).utc().format('YYYYMMDD[T]HHmmss[Z]')
+    const startDate = moment(getDate(event.start)).format('YYYYMMDD[T]HHmmss[Z]')
     const length = moment(getDate(event.end)).diff(moment(getDate(event.start)))
     const rule = rrulestr(event.rrule ? event.rrule : `DTSTART:${startDate}\n${event.recurrence[0]}`)
     const startDates = rule.between(new Date(BetweenStart), new Date(BetweenEnd))
@@ -82,10 +82,10 @@ export function ProcessRecurringEvents(events, color) {
 
 export function ProcessSingleEvents(events, color) {
   return events.map(event => {
-    const startDate = moment(getDate(event.start)).utc()
+    const startDate = moment(getDate(event.start))
     return {
       start: startDate.toDate(),
-      end: moment(getDate(event.end)).utc().toDate(),
+      end: moment(getDate(event.end)).toDate(),
       title: `${startDate.format('h A')} ${event.summary}`,
       color: event.other ? event.other.color : color
     }
