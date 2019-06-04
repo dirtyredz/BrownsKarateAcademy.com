@@ -1,6 +1,6 @@
 import axios from 'axios'
-import moment from 'moment'
-import { rrulestr } from 'rrule'
+import moment from 'moment-timezone'
+import { rrulestr, RRuleSet, RRule } from 'rrule'
 
 const BetweenStart = Date.UTC(2018, 1, 1)
 const BetweenEnd = Date.UTC(2022, 1, 1)
@@ -65,10 +65,12 @@ export function getOutsideEvents () {
 
 export function ProcessRecurringEvents(events, color) {
   return events.map(event => {
-    const startDate = moment(getDate(event.start)).format('YYYYMMDD[T]HHmmss[Z]')
+    const rrule = event.rrule.match(/^RRULE\:(.*)$/gm)[0];
+    const startDate = moment(getDate(event.start)).add(5, 'hours').format('YYYYMMDD[T]HHmmss[Z]')
     const length = moment(getDate(event.end)).diff(moment(getDate(event.start)))
-    const rule = rrulestr(event.rrule ? event.rrule : `DTSTART:${startDate}\n${event.recurrence[0]}`)
-    const startDates = rule.between(new Date(BetweenStart), new Date(BetweenEnd))
+    const rule = rrulestr(`DTSTART;TZID=America/Chicago:${startDate}\n${rrule}`)
+    // Add a rrule to rruleSet
+    const startDates = rule.between(moment().subtract(1, 'year').toDate(), moment().add(1, 'year').toDate())
     return startDates.map(start => {
       return {
         start: moment(start).toDate(),
@@ -93,5 +95,13 @@ export function ProcessSingleEvents(events, color) {
 }
 
 function getDate(eventObj) {
-  return eventObj.date ? eventObj.date : eventObj.dateTime ? eventObj.dateTime : eventObj
+  const selectedTimeZone = 'America/Chicago';
+  // const localTimeZone = moment.tz.guess();
+  moment.tz.setDefault(selectedTimeZone);
+  // const effectiveDate = moment(eventObj.date ? eventObj.date : eventObj.dateTime ? eventObj.dateTime : eventObj).tz(selectedTimeZone, true).toJSON();
+  // moment.tz.setDefault(localTimeZone);
+  // console.log('test',effectiveDate);
+  const dateFromIcal = (eventObj.date ? eventObj.date : eventObj.dateTime ? eventObj.dateTime : eventObj).replace('.000Z', '-05:00')
+  // console.log(dateFromIcal)
+  return dateFromIcal
 }
