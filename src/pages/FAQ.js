@@ -114,7 +114,7 @@ const QuestionsAndAnswers = [
   },
   {
     Q: "My child is too young.",
-    A: "We have classes for children as young as 3 years old. Learn about our Mini Warriors curriculum."
+    A: "We have classes for children as young as 7 years old. Learn about our Mini Warriors curriculum."
   },
   {
     Q: "I don’t want my child to beat up other kids.",
