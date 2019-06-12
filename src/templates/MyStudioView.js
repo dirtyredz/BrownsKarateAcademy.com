@@ -53,9 +53,10 @@ const MyStudioView = (props) => {
             __html: sanitizeHtml(
               Description,
               {
-                allowedTags: [ 'b', 'br', 'span', 'i', 'em', 'strong', 'a' ],
+                allowedTags: [ 'b', 'br', 'span', 'i', 'em', 'strong', 'a', 'li', 'ul'  ],
                 allowedAttributes: {
-                  'a': [ 'href' ]
+                'a': [ 'href', 'ng-click', 'target'],
+                  'span': ['style']
                 }
               }
             )
@@ -143,7 +144,7 @@ const DescriptionWrap = styled.div`
   padding: 30px;
   font-size: 120%;
   font-weight: 600;
-  text-align: center;
+  text-align: left;
 `
 
 const MyHR = styled.hr`

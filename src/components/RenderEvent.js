@@ -46,9 +46,10 @@ const TheEvent = ({ data, index }) => {
           __html: sanitizeHtml(
             context.Description,
             {
-              allowedTags: [ 'b', 'br', 'span', 'i', 'em', 'strong', 'a' ],
+              allowedTags: [ 'b', 'br', 'span', 'i', 'em', 'strong', 'a', 'li', 'ul' ],
               allowedAttributes: {
-                'a': [ 'href', 'ng-click', 'target']
+                'a': [ 'href', 'ng-click', 'target'],
+                'span': ['style']
               }
             }
           )
@@ -90,6 +91,8 @@ const EventWrap = styled.div`
 const SmallDesc = styled.span`
   font-size: 80%;
   font-weight: 600;
+  overflow: hidden;
+  max-height: 500px;
 
   @media (max-width:${BreakPoints.mobileLandscape}px) {
     font-size: 110%;
