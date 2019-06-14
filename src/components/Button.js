@@ -37,16 +37,18 @@ export default class Main extends Component {
 }
 
 const MyButton = (props) => {
-  const ButtonComponent = props.to ? ButtonLink : TheButton
-  const Index = typeof props.index === "number" ? props.index : Math.floor(Math.random() * 2)
+  const { handleEnter, to, index, text, rest } = props
+  const ButtonComponent = to ? ButtonLink : TheButton
+  const Index = typeof index === "number" ? index : Math.floor(Math.random() * 2)
   return (
     <ButtonWrap as="span" >
       <ButtonComponent
-        onMouseEnter={props.handleEnter}
-        {...props}
+        onMouseEnter={handleEnter}
+        to={to}
+        {...rest}
         color={Index % 2 ? Colors.Green : Colors.Red}
         >
-        {props.text ? props.text : "LEARN MORE"}
+        {text ? text : "LEARN MORE"}
       </ButtonComponent>
     </ButtonWrap>
   )

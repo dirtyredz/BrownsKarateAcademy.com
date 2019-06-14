@@ -16,12 +16,10 @@ const GetSmallDescription = (title, description) => {
   const Defaults = [
     'Join us today and see what Sensei Brown can do for you.'
   ]
-  console.log('before render')
   const Found = Object.keys(Search).find((des) => {
     const reg = new RegExp(`.*${des}.*`, 'i');
     return reg.test(title) || reg.test(description)
   })
-console.log('after render')
   return Search[Found] || Defaults[Math.floor(Math.random() * Defaults.length)]
 }
 
