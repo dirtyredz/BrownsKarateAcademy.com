@@ -14,11 +14,13 @@ export default class ErrorBoundary extends React.Component {
     // Display fallback UI
     this.setState({ hasError: true });
     // You can also log the error to an error reporting service
+    console.error(error)
     window.Sentry.configureScope((scope) => {
       Object.keys(info).forEach(key => {
         scope.setExtra(key, info[key]);
       });
     });
+    console.log(error)
     window.Sentry.captureException(error);
   }
 
