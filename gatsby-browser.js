@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-// import { Provider } from 'react-redux'
-// import { Router } from 'react-router-dom'
-// import store from './src/redux/store'
 import ReactBreakpoints from 'react-breakpoints'
 import BreakPoints from './src/utils/breakpoints'
 
@@ -22,17 +19,6 @@ export const wrapRootElement = ({ element }) => {
       )
     }
   }
-
-  // const ConnectedRootElement = (
-  //   // <Provider store={store}>
-  //     <ReactBreakpoints
-  //       breakpoints={BreakPoints}
-  //       guessedBreakpoint={BreakPoints.mobile}
-  //     >
-  //       {element}
-  //     </ReactBreakpoints>
-  //   // </Provider>
-  // )
   return <ConnectedRootElement />
 };
 
@@ -70,3 +56,15 @@ export const onClientEntry = () => {
     }
   });
 };
+
+
+export const onServiceWorkerUpdateReady = () => {
+  const answer = window.confirm(
+    `This application has been updated. ` +
+      `Reload to display the latest version?`
+  )
+
+  if (answer === true) {
+    window.location.reload()
+  }
+}
