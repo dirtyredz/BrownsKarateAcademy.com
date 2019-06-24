@@ -30,7 +30,9 @@ const MyStudioView = (props) => {
     default:
       break;
   }
+  console.log(Description)
   return (
+    
     <Layout>
       <SEO title="MyStudio" keywords={[`MyStudio`, `react`]} />
       <GlobalStyle />
@@ -53,7 +55,7 @@ const MyStudioView = (props) => {
             __html: sanitizeHtml(
               Description,
               {
-                allowedTags: [ 'b', 'br', 'span', 'i', 'em', 'strong', 'a', 'li', 'ul'  ],
+                allowedTags: [ 'b', 'br', 'span', 'i', 'em', 'strong', 'a', 'li', 'ul', 'div' ],
                 allowedAttributes: {
                 'a': [ 'href', 'ng-click', 'target'],
                   'span': ['style']

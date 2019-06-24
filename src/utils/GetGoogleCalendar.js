@@ -75,7 +75,7 @@ export function ProcessRecurringEvents(events, color) {
       return {
         start: moment(start).toDate(),
         end: moment(start).add(length, 'milliseconds').toDate(),
-        title: `${moment(start).format('h A')} ${event.summary}`,
+        title: `${moment(start).format('h:mm A')} ${event.summary}`,
         color: event.other ? event.other.color : color
       }
     })
@@ -88,7 +88,7 @@ export function ProcessSingleEvents(events, color) {
     return {
       start: startDate.toDate(),
       end: moment(getDate(event.end)).toDate(),
-      title: `${startDate.format('h A')} ${event.summary}`,
+      title: `${startDate.format('h:mm A')} ${event.summary}`,
       color: event.other ? event.other.color : color
     }
   })

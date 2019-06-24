@@ -46,7 +46,7 @@ const TheEvent = ({ data, index }) => {
           __html: sanitizeHtml(
             context.Description,
             {
-              allowedTags: [ 'b', 'br', 'span', 'i', 'em', 'strong', 'a', 'li', 'ul' ],
+              allowedTags: [ 'b', 'br', 'span', 'i', 'em', 'strong', 'a', 'li', 'ul', 'div' ],
               allowedAttributes: {
                 'a': [ 'href', 'ng-click', 'target'],
                 'span': ['style']

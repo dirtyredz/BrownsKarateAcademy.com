@@ -52,7 +52,7 @@ const InnerBox = styled.div`
 
 const Wrapper = styled.div`
   position: relative;
-  max-height: 300px;
+  max-height: 350px;
   height: calc(100px + 10vw);
 `
 

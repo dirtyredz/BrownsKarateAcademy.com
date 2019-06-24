@@ -8,7 +8,7 @@ import ErrorBoundary from './ErrorBoundary'
 
 const GetSmallDescription = (title, description) => {
   const Search = {
-    Kid: 'Weve worked with students for over 20 years and know that every child is unique. Learn about the various classes we offer.',
+    Kid: "We've worked with students for over 45 years and know that every child is unique. Learn about the various classes we offer.",
     Adult: "If you've always dreamed about becoming a black belt but wonder if you can meet the challenge. Let us help you make your dream come true.",
     Arnis: 'Sensei Brown has been working closely with the Philippine Masters to bring these teachings to the Midwest.',
     Weapon: 'Looking to expand your skills into weapons, then this class is for you.',

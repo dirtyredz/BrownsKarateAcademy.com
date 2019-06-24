@@ -2,7 +2,7 @@ var Colors = require('./src/utils/colors')
 module.exports = {
   siteMetadata: {
     siteUrl: `https://www.brownskarateacademy.com`,
-    title: `Browns Karate Academy`,
+    title: `Brown's Karate Academy`,
     description: `.`,
     author: `Digital Redz | David McClain (Dirtyredz)`,
   },
