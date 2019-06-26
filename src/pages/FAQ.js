@@ -32,28 +32,31 @@ class FaqPage extends Component {
 
 const TheFAQ = ({handleClick}) => {
   return (
-    <ul>
-      {QuestionsAndAnswers.map((QA, index) => (
-        <ListItem key={`Q_A_${index}`} onClick={handleClick.bind(this,index)}>
-          <HoverMe><span>{QA.Q}</span></HoverMe>
-          {QA.Show && (
-            <ErrorBoundary
-              FallbackComponent={
-                <>
+    <>
+      <HowTo>Click on any question below to show its answer!</HowTo>
+      <ul role="tablist">
+        {QuestionsAndAnswers.map((QA, index) => (
+          <ListItem key={`Q_A_${index}`} onClick={handleClick.bind(this,index)} role="listitem" tabIndex={index}>
+            <HoverMe><span>{QA.Q}</span></HoverMe>
+            {QA.Show && (
+              <ErrorBoundary
+                FallbackComponent={
+                  <>
+                    <br/>
+                    <LightGray >A.&nbsp;&nbsp;{QA.A}</LightGray>
+                  </>
+                }
+              >
+                <Fade bottom>
                   <br/>
                   <LightGray >A.&nbsp;&nbsp;{QA.A}</LightGray>
-                </>
-              }
-            >
-              <Fade bottom>
-                <br/>
-                <LightGray >A.&nbsp;&nbsp;{QA.A}</LightGray>
-              </Fade>
-            </ErrorBoundary>
-          )}
-        </ListItem>
-      ))}
-    </ul>
+                </Fade>
+              </ErrorBoundary>
+            )}
+          </ListItem>
+        ))}
+      </ul>
+    </>
   )
 }
 
@@ -69,6 +72,13 @@ const HoverMe = styled.div`
     background-color: ${`rgba(${Colors.hexToRgb(Colors.DarkGrey)},0.3)`};
   }
 `
+
+const HowTo = styled.div`
+  padding: 30px;
+  font-size: 150%;
+
+`
+
 const ListItem = styled.li`
   list-style:none;
   margin:0;
