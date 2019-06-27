@@ -5,7 +5,7 @@ import Typography from 'tyjs'
 const typography = new Typography({
   baseFontSize: '20px',
   baseLineHeight: 1.5,
-  headerFontFamily: ['Shojumaru', 'Yozakura JP', 'Avenir Next', 'Helvetica Neue', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'],
+  headerFontFamily: ['Shojumaru', 'Avenir Next', 'Helvetica Neue', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'],
   bodyFontFamily: ['Montserrat', 'Georgia', 'serif'],
   scaleRatio: 3,
   bodyGray: 10,

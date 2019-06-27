@@ -30,25 +30,6 @@ export default withBreakpoints(Layout)
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
-    font-family: 'Yozakura JP';
-    font-display: auto;
-    src: local('YozakuraJP-Light'), url('${fonts.YozakuraJP.Light.OTF}') format('otf'),
-    url('${fonts.YozakuraJP.Light.TTF}') format('truetype'),
-    url('${fonts.YozakuraJP.Light.WOFF}') format('woff'),
-    url('${fonts.YozakuraJP.Light.WOFF2}') format('woff');
-    font-weight: 300;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: 'Yozakura JP';
-    font-display: auto;
-    src: local('YozakuraJP-Regular'), url('${fonts.YozakuraJP.Regular.OTF}') format('otf'),
-      url('${fonts.YozakuraJP.Regular.WOFF}') format('woff'),
-      url('${fonts.YozakuraJP.Regular.WOFF2}') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-  }
-  @font-face {
     font-family: 'Shojumaru';
     font-display: auto;
     src: local('Shojumaru'), url('${fonts.Shojumaru.Regular.TTF}') format('truetype'),
