@@ -28,7 +28,7 @@ const IndexPage = () => (
     <Schedule />
     <About />
     <Events>
-      {/* <StaticQuery
+      <StaticQuery
         query={graphql`
           query {
             allFile(limit: 10, filter: {ext: { eq: ".jpg"}, relativeDirectory: {eq: "gallery"} }) {
@@ -49,7 +49,7 @@ const IndexPage = () => (
             <Button to="/Gallery" text="VIEW MORE"/>
           </Gallery>
         )}
-      /> */}
+      />
     </Events>
     
     <Contact />
