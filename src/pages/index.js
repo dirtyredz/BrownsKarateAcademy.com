@@ -24,10 +24,10 @@ const IndexPage = () => (
     <Welcome />
     <MyDragon style={{height: 'unset'}}/>
     <Classes />
-    {/* <MyCaligraphy style={{height: 'unset'}}/>
+    <MyCaligraphy style={{height: 'unset'}}/>
     <Schedule />
     <About />
-    <Events>
+    {/* <Events>
       <StaticQuery
         query={graphql`
           query {
