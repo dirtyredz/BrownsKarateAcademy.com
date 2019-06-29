@@ -46,14 +46,14 @@ export default class Events extends Component {
             const Events = data.allSitePage.edges
             return (
               <EventsWrapper>
-                {/* {Events.length > 0
+                {Events.length > 0
                   ? Events.map((classInfo, index) => <RenderEvent key={`Event_${classInfo.ID}`} index={index} data={classInfo.node}/>)
                   : (<MySpan>
                       We seem to not have any events going on right now.
                       <br/>
                       Please check back tomorrow or call: 715-541-2187
                     </MySpan>
-                    )} */}
+                    )}
               </EventsWrapper>
             )
           }}
