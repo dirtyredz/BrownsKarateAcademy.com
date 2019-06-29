@@ -41,7 +41,7 @@ const TheEvent = ({ data, index }) => {
     <EventWrap>
       <Title>{context.Title}</Title>
       <br/>
-      {/* <SmallDesc
+      <SmallDesc
         dangerouslySetInnerHTML={{
           __html: sanitizeHtml(
             context.Description,
@@ -54,7 +54,7 @@ const TheEvent = ({ data, index }) => {
             }
           )
         }}
-      /> */}
+      />
       <br/>
       <Button
         text="VIEW EVENT"
