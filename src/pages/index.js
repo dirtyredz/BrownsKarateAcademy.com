@@ -22,9 +22,9 @@ const IndexPage = () => (
     <SEO title="Home" />
     <GreenBox />
     <Welcome />
-    {/* <MyDragon style={{height: 'unset'}}/>
+    <MyDragon style={{height: 'unset'}}/>
     <Classes />
-    <MyCaligraphy style={{height: 'unset'}}/>
+    {/* <MyCaligraphy style={{height: 'unset'}}/>
     <Schedule />
     <About />
     <Events>
