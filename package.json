@@ -24,7 +24,7 @@
     "gatsby-source-filesystem": "^2.0.27",
     "gatsby-source-ical": "github:dirtyredz/gatsby-source-ical",
     "gatsby-transformer-sharp": "^2.1.17",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "moment-timezone": "^0.5.25",
     "no-scroll": "^2.1.1",
     "prop-types": "^15.7.2",
