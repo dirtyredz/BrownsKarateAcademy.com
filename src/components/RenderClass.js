@@ -69,20 +69,23 @@ const TitleWrap = styled.div`
   display: flex;
   justify-content: center;
   height: 350px;
-  max-height: 121px;
+  max-height: 160px;
 
   & > span {
     transform: ${(props) => `rotate(-${props.Rotate}deg)`};
     font-size: 120%;
     font-weight: 700;
     width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   @media (max-width:${BreakPoints.mobileLandscape}px) {
-    max-height: 80px;
+    max-height: 100px;
   }
   @media (min-width:${BreakPoints.mobileLandscape}px) and (max-width:${BreakPoints.tablet}px) {
-    max-height: 100px;
+    max-height: 135px;
   }
 `
 const SmallDesc = styled.span`

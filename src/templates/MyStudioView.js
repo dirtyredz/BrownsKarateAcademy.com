@@ -32,7 +32,7 @@ const MyStudioView = (props) => {
   }
   console.log(Description)
   return (
-    
+
     <Layout>
       <SEO title="MyStudio" keywords={[`MyStudio`, `react`]} />
       <GlobalStyle />
@@ -76,7 +76,7 @@ const MyStudioView = (props) => {
             <CenterMeButton>
               <MyStudioButton>
                 <div>{ButtonText}</div>
-                <img alt="MyStudio Link" src="https://www.mystudio.academy/v30/WebPortal/image/logo_incourage.png"/>
+                <img style={{ margin: 'auto' }} height="30px" alt="MyStudio Link" src="https://www.mystudio.io/image/mystudio-logo.webp"/>
               </MyStudioButton>
             </CenterMeButton>
           }

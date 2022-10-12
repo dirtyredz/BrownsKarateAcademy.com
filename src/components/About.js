@@ -34,7 +34,7 @@ export default class About extends Component {
                       title
                     }
                   }
-                  imageTwo: file(relativePath: { eq: "Brown Family.jpg" }) {
+                  imageTwo: file(relativePath: { eq: "kids.jpg" }) {
                     childImageSharp {
                       fluid(maxWidth: 700, quality: 100) {
                         ...GatsbyImageSharpFluid
@@ -64,7 +64,7 @@ export default class About extends Component {
               Drawing upon nearly 50 years of Martial Arts experience, Master Brown set out to establish a superior Martial Arts School that would stand the test of time and build a vast base of amazing students.
               <br />
               <br />
-              Teaching the highest quality martial arts available is our #1 priority. Making our dojo a family-friendly environment is a very close second. We feel that family involvement is key to success in all of life’s endeavors, and we have seen firsthand how that involvement can make or break one’s training in the world of martial arts. We love it when families train together – whether as students or as encouraging training partners, so we do all that we can to help you help your student. We offer family classes and family discounts to help families to be able to train together. We offer Parents as Coaches classes to help parents help their children to have a successful journey to becoming a Black Belt. And we host many activities throughout the year to encourage families to get involved in the world of BKA, such as picnics, awards nights, and parent’s nights out. We also offer Karate Birthday Parties for students and non-students alike!
+              Teaching the highest quality martial arts available is our #1 priority. Making our dojo a family-friendly environment is a very close second. We feel that family involvement is key to success in all of life’s endeavors, and we have seen firsthand how that involvement can make or break one’s training in the world of martial arts. We love it when families train together – whether as students or as encouraging training partners, so we do all that we can to help you help your student. We offer Parents as Coaches classes to help parents help their children to have a successful journey to becoming a Black Belt. And we host many activities throughout the year to encourage families to get involved in the world of BKA, such as picnics, awards nights, and parent’s nights out. We also offer Karate Birthday Parties for students and non-students alike!
             </Information>
           </SideBySide>
         </CenterHorizontal>

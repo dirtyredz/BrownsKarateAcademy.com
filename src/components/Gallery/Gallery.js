@@ -163,14 +163,13 @@ const MyImage = styled(Img)`
   cursor: pointer;
 
   &:hover {
-    transform: scale(1.5);
+    transform: scale(1.1);
   }
 `
 
 const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: auto;
   width: 80%;
   justify-content: center;
   background-color: white;

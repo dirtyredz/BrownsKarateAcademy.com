@@ -16,7 +16,7 @@ export default class GreenBox extends Component {
           <Box>
             <InnerBox>
               <CenterVert>
-                Brown’s Karate Academy is the area’s Oldest and Most Experienced Professional Martial Arts School, owned by one of the Highest Ranking Traditional Okinawan Martial Arts Instructors in Wisconsin, 8th Degree Master Lloyd A. Brown.
+                Brown’s Karate Academy is the area’s Oldest and Most Experienced Professional Martial Arts School, owned by one of the Highest Ranking Traditional Okinawan Martial Arts Instructors in Wisconsin, 9th Degree Master Lloyd A. Brown.
               </CenterVert>
             </InnerBox>
           </Box>

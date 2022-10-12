@@ -220,7 +220,7 @@ class SignUpPage extends Component {
                 </CenterImg>
                 <br/>
                 <br/>
-                <span>Enter the Studio Code "7155412187".</span>
+                <span>Enter the Studio Code "BKA".</span>
                 <br/>
                 <CenterImg>
                   <MyImg fluid={data.StudioCode.childImageSharp.fluid}/>

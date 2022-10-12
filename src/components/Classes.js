@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import Section from "./Section"
-// import axios from 'axios'
 import RenderClass from './RenderClass'
-import RenderTrial from './RenderTrial'
-// import Loader from './Loader'
 import * as Colors from '../utils/colors'
 import { StaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
@@ -52,7 +49,6 @@ export default class Classes extends Component {
           `}
           render={data => {
             const Classes = data.Classes.edges
-            const Trials = data.Trials.edges
             return (
               <>
                 <ClassesWrapper>
@@ -64,23 +60,11 @@ export default class Classes extends Component {
                 <Smaller>715-541-2187</Smaller>
                 <br/>
                 <MyLink to="/Classes">VIEW ALL CLASSES</MyLink>
-                <br/>
-                <MyHR />
-                <br/>
-                <Smaller>Check out our current trial options!</Smaller>
-                <br/>
-                <br/>
-                <ClassesWrapper>
-                  {Trials.map((trialInfo, index) => <RenderTrial key={`Trial_${trialInfo.node.context.ID}`} index={index} data={trialInfo.node}/>)}
-                </ClassesWrapper>
               </>
             )
           }}
         />
-        <br/>
-        <br/>
       </CenterHorizontal>
-      <MyLink to="/Trials">VIEW ALL TRIALS</MyLink>
     </MySection>
     )
   }
@@ -88,9 +72,6 @@ export default class Classes extends Component {
 
 const MySection = styled(Section)`
   min-height: 400px;
-`
-const MyHR = styled.hr`
-  border-bottom: ${Colors.Red} 3px solid;
 `
 
 const ClassesWrapper = styled.div`

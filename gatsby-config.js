@@ -78,47 +78,7 @@ module.exports = {
         other: {
           color: 'dodgerblue'
         },
-        url: `https://calendar.google.com/calendar/ical/kcbv0efmm5jfrcoecduhuhve9o%40group.calendar.google.com/private-4a0c543d54b23aaf3926b9cc0b51a89e/basic.ics`,
-      },
-    },
-    {
-      resolve: `gatsby-source-ical`,
-      options: {
-        name: `Outside Events`,
-        other: {
-          color: 'forestgreen'
-        },
-        url: `https://calendar.google.com/calendar/ical/dfoud45ms57i7glgh9e929s1kg%40group.calendar.google.com/private-8244262cdd77a9f32e04a715faa846ae/basic.ics`,
-      },
-    },
-    {
-      resolve: `gatsby-source-ical`,
-      options: {
-        name: `Barron Events`,
-        other: {
-          color: 'lightgreen'
-        },
-        url: `https://calendar.google.com/calendar/ical/qq2dco3isjk62mqgg877ch7e2k%40group.calendar.google.com/private-db9726e57a1bd4b054d8b75c3aa1d8bd/basic.ics`,
-      },
-    },
-    {
-      resolve: `gatsby-source-ical`,
-      options: {
-        name: `Hayward Classes`,
-        other: {
-          color: 'orchid'
-        },
-        url: `https://calendar.google.com/calendar/ical/1klpv7c8ak6eh30jmsdlicg2e8%40group.calendar.google.com/private-57fe04833a80ffcb3e0f098a0af1ac48/basic.ics`,
-      },
-    },
-    {
-      resolve: `gatsby-source-ical`,
-      options: {
-        name: `Hayward Events`,
-        other: {
-          color: 'lightpink'
-        },
-        url: `https://calendar.google.com/calendar/ical/9rslp7dqepa7lcediuitc62sn0%40group.calendar.google.com/private-a6a12e9ac8dd77525f21d50f930a473d/basic.ics`,
+        url: `https://calendar.google.com/calendar/ical/dirtyredz60%40gmail.com/public/basic.ics`,
       },
     },
   ],

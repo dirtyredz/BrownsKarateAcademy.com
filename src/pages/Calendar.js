@@ -4,16 +4,12 @@ import { StaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Section from "../components/Section"
-import * as Colors from '../utils/colors'
 import styled, { createGlobalStyle } from 'styled-components'
-import { ProcessRecurringEvents, ProcessSingleEvents, getBarronClass, getBarronEvents, getHaywardClass, getHaywardEvents, getOutsideEvents } from  '../utils/GetGoogleCalendar'
+import { ProcessRecurringEvents, ProcessSingleEvents } from  '../utils/GetGoogleCalendar'
 import moment from 'moment'
 
 import BigCalendar from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
-
-
-
 
 class Calendar extends Component {
   constructor () {
@@ -25,36 +21,6 @@ class Calendar extends Component {
   }
   componentDidMount () {
     this.setState({localizer: BigCalendar.momentLocalizer(moment)})
-
-    // getBarronClass()
-    // .then(data => {
-    //   console.log(data)
-    //   this.setState({events: [...this.state.events, ...data]})
-    // })
-
-    // getBarronEvents()
-    // .then(data => {
-    //   console.log(data)
-    //   this.setState({events: [...this.state.events, ...data]})
-    // })
-
-    // getHaywardClass()
-    // .then(data => {
-    //   console.log(data)
-    //   this.setState({events: [...this.state.events, ...data]})
-    // })
-
-    // getHaywardEvents()
-    // .then(data => {
-    //   console.log(data)
-    //   this.setState({events: [...this.state.events, ...data]})
-    // })
-
-    // getOutsideEvents()
-    // .then(data => {
-    //   console.log(data)
-    //   this.setState({events: [...this.state.events, ...data]})
-    // })
   }
   render() {
     return (
@@ -84,6 +50,7 @@ class Calendar extends Component {
             `}
             render={data => {
               const recurringEvents = ProcessRecurringEvents(data.allIcal.edges.filter(edge => edge.node.rrule).map(edge => edge.node))
+              console.log({ recurringEvents })
               const singleEvents = ProcessSingleEvents(data.allIcal.edges.filter(edge => !edge.node.rrule).map(edge => edge.node))
               console.log(data, recurringEvents, singleEvents)
               return (
@@ -101,7 +68,7 @@ class Calendar extends Component {
                     }}
                     popup
                     eventPropGetter={
-                      (event, start, end, isSelected) => {
+                      (event) => {
                         let newStyle = {
                           backgroundColor: "lightgrey",
                           color: 'black',

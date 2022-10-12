@@ -28,12 +28,39 @@ export default class Schedule extends Component {
         </CenterHorizontal>
         <Verticle>
           <Day>Monday</Day>
-          <Time>6:00-7:30pm Philippine Stick Training (Modern Arnis) Ages 7 and up</Time>
-          <br />
-          <Day>Tuesday & Thursday</Day>
-          <Time>5:00-6:00pm Kids (Ages 7-13)</Time>
-          <Time>6:00-6:45pm Weapons (Ages 7 +)</Time>
-          <Time>6:45-7:45pm Adults (Ages 14 +)</Time>
+          <TimeList>
+            <Time>4:45 – 5:30 Hatchlings (4-6)</Time>
+            <Time>5:45 – 6:30 Pandas (beginners)</Time>
+            <Time>6:45 – 7:30 Arnis (all ages)</Time>
+            <Time>7:45 – 8:30 Adult Empty Hand</Time>
+          </TimeList>
+        </Verticle>
+        <Verticle>
+          <Day>Tuesday</Day>
+          <TimeList>
+            <Time>4:45 – 5:30 Hatchlings (4-6)</Time>
+            <Time>5:45 – 6:30 Dragons (7-13 color)</Time>
+            <Time>6:45 – 7:30 Weapons (adults)</Time>
+            <Time>7:45 – 8:30 Adult Empty Hand</Time>
+          </TimeList>
+        </Verticle>
+        <Verticle>
+          <Day>Wednesday</Day>
+          <TimeList>
+            <Time>4:45 – 5:30 Hatchlings (4-6)</Time>
+            <Time>5:45 – 6:30 Pandas (beginners)</Time>
+            <Time>6:45 – 7:30 Arnis (all ages)</Time>
+            <Time>7:45 – 8:30 Adult Empty Hand</Time>
+          </TimeList>
+        </Verticle>
+        <Verticle>
+          <Day>Thursday</Day>
+          <TimeList>
+            <Time>4:45 – 5:30 Hatchlings (4-6)</Time>
+            <Time>5:45 – 6:30 Dragons (7-13 color)</Time>
+            <Time>6:45 – 7:30 Weapons (adults)</Time>
+            <Time>7:45 – 8:30 Adult Empty Hand</Time>
+          </TimeList>
         </Verticle>
         <br />
         <br />
@@ -64,11 +91,13 @@ const Day = styled.span`
   font-weight: 900;
 `
 
-const Time = styled.span`
+const TimeList = styled.ul`
+  padding-left: 20px;
+`
+
+const Time = styled.li`
   font-size: 140%;
   font-weight: 600;
-  padding-left: 60px;
-  text-indent: -30px;
 `
 const BottomRight = styled.div`
   margin-left: auto;
