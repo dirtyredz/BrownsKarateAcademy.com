@@ -25,7 +25,7 @@ const IndexPage = () => (
     <MyDragon style={{height: 'unset'}}/>
     <Classes />
     <MyCaligraphy style={{height: 'unset'}}/>
-    <Schedule />
+    {/*<Schedule />*/}
     <About />
     <Events>
       <StaticQuery
@@ -51,7 +51,7 @@ const IndexPage = () => (
         )}
       />
     </Events>
-    
+
     <Contact />
   </Layout>
 )

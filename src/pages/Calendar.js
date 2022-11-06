@@ -30,8 +30,8 @@ class Calendar extends Component {
         <Section>
           <CalendarContainer>
           <StaticQuery
-            query={graphql`
-              query {
+            query={`
+              {
                 allIcal {
                   edges {
                     node {
@@ -50,9 +50,7 @@ class Calendar extends Component {
             `}
             render={data => {
               const recurringEvents = ProcessRecurringEvents(data.allIcal.edges.filter(edge => edge.node.rrule).map(edge => edge.node))
-              console.log({ recurringEvents })
               const singleEvents = ProcessSingleEvents(data.allIcal.edges.filter(edge => !edge.node.rrule).map(edge => edge.node))
-              console.log(data, recurringEvents, singleEvents)
               return (
                 <>
                   <BigCalendar

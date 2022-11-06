@@ -78,7 +78,7 @@ module.exports = {
         other: {
           color: 'dodgerblue'
         },
-        url: `https://calendar.google.com/calendar/ical/dirtyredz60%40gmail.com/public/basic.ics`,
+        url: `https://calendar.google.com/calendar/ical/bkabarron%40gmail.com/public/basic.ics`,
       },
     },
   ],
